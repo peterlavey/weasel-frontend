@@ -9,13 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var Servicio = (function () {
+    function Servicio() {
+    }
+    return Servicio;
+}());
+exports.Servicio = Servicio;
+var SERVICIOS = [
+    { id: 1, name: 'servicio1', type: 'GET' },
+    { id: 2, name: 'servicio2', type: 'GET' },
+    { id: 3, name: 'servicio3', type: 'POST' }
+];
 var AppComponent = (function () {
     function AppComponent() {
+        this.title = 'Soy el title';
+        this.variable = 'asdasd';
+        this.servicios = SERVICIOS;
     }
+    AppComponent.prototype.onSelect = function (servicio) {
+        this.servicioSeleccionado = servicio;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>weeena</h1>'
+            template: '{{title}} weeena {{variable}} <div *ngIf="servicioSeleccionado"><input [(ngModel)]="servicioSeleccionado.name" placeholder="name"/></div> <ul><li *ngFor="let servicio of servicios" (click)="onSelect(servicio)">{{servicio.name}}-{{servicio.type}}</li></ul>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

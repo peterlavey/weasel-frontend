@@ -9,34 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Servicio = (function () {
-    function Servicio() {
-    }
-    return Servicio;
-}());
-exports.Servicio = Servicio;
-var SERVICIOS = [
+var SERVICES = [
     { id: 1, name: 'servicio1', type: 'GET' },
     { id: 2, name: 'servicio2', type: 'GET' },
     { id: 3, name: 'servicio3', type: 'POST' }
 ];
-var AppComponent = (function () {
-    function AppComponent() {
+var DashboardComponent = (function () {
+    function DashboardComponent() {
         this.title = 'Soy el title';
         this.variable = 'asdasd';
-        this.servicios = SERVICIOS;
+        this.services = SERVICES;
     }
-    AppComponent.prototype.onSelect = function (servicio) {
-        this.servicioSeleccionado = servicio;
+    DashboardComponent.prototype.onSelect = function (service) {
+        this.selectedService = service;
     };
-    AppComponent = __decorate([
+    DashboardComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '{{title}} weeena {{variable}} <div *ngIf="servicioSeleccionado"><input [(ngModel)]="servicioSeleccionado.name" placeholder="name"/></div> <ul><li *ngFor="let servicio of servicios" (click)="onSelect(servicio)">{{servicio.name}}-{{servicio.type}}</li></ul>'
+            templateUrl: './app/components/dashboard/dashboard.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.DashboardComponent = DashboardComponent;
+//# sourceMappingURL=dashboard.component.js.map

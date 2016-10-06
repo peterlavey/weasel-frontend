@@ -9,7 +9,7 @@ const SERVICES:Service[]=[
 ];
 
 @Component({
-  selector: 'my-app',
+  selector: 'dashboard',
   templateUrl : './app/components/dashboard/dashboard.html'
 })
 

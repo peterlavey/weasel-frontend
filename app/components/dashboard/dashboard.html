@@ -1,10 +1,6 @@
 <div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-primary">New</button>
-  <button type="button" class="btn btn-secondary">...</button>
-  <button type="button" class="btn btn-secondary">...</button>
+  <a routerLink="/" routerLinkActive="active" class="btn btn-primary">home</a>
+  <a routerLink="/service-detail" routerLinkActive="active" class="btn btn-primary">Detail</a>
 </div>
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let service of services" (click)="onSelect(service)">
-    {{service.name}}-{{service.type}}
-  </li>
-</ul>
+
+<router-outlet></router-outlet>

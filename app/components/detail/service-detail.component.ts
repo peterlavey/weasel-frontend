@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector:'service-detail',
-  template:'Detalle: {{service.name}}'
+  templateUrl:'./app/components/detail/service-detail.html'
 })
 
 export class ServiceDetailComponent{}

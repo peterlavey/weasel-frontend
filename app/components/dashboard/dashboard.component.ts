@@ -2,11 +2,11 @@ import {Component} from '@angular/core';
 
 import {Service} from '../../models/service';
 
-const SERVICES:Service[]=[
+/*const SERVICES:Service[]=[
   {id:1, name:'servicio1', type:'GET'},
   {id:2, name:'servicio2', type:'GET'},
   {id:3, name:'servicio3', type:'POST'}
-];
+];*/
 
 @Component({
   selector: 'dashboard',
@@ -16,7 +16,7 @@ const SERVICES:Service[]=[
 export class DashboardComponent{
   title='Soy el title';
   variable='asdasd';
-  services=SERVICES;
+  //services=SERVICES;
   selectedService:Service;
   onSelect(service:Service):void{
     this.selectedService=service;

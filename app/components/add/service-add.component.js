@@ -9,27 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-/*const SERVICES:Service[]=[
-  {id:1, name:'servicio1', type:'GET'},
-  {id:2, name:'servicio2', type:'GET'},
-  {id:3, name:'servicio3', type:'POST'}
-];*/
-var DashboardComponent = (function () {
-    function DashboardComponent() {
-        this.title = 'Soy el title';
-        this.variable = 'asdasd';
+var ServiceAddComponent = (function () {
+    function ServiceAddComponent() {
+        this.service = {
+            id: '.',
+            name: '.',
+            type: 'GET',
+            body: '{}'
+        };
     }
-    DashboardComponent.prototype.onSelect = function (service) {
-        this.selectedService = service;
+    ServiceAddComponent.prototype.onSend = function () {
+        this.service.body = JSON.parse(JSON.stringify(eval("(" + this.service.body + ")")));
+        console.info(this.service);
     };
-    DashboardComponent = __decorate([
+    ;
+    ServiceAddComponent = __decorate([
         core_1.Component({
-            selector: 'dashboard',
-            templateUrl: './app/components/dashboard/dashboard.html'
+            selector: 'service-add',
+            templateUrl: './app/components/add/service-add.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], DashboardComponent);
-    return DashboardComponent;
+    ], ServiceAddComponent);
+    return ServiceAddComponent;
 }());
-exports.DashboardComponent = DashboardComponent;
-//# sourceMappingURL=dashboard.component.js.map
+exports.ServiceAddComponent = ServiceAddComponent;
+//# sourceMappingURL=service-add.component.js.map

@@ -1,5 +1,6 @@
 export class Service{
-  id:number;
+  id:string;
   name:string;
-  type:string
+  type:string;
+  body:string;
 }

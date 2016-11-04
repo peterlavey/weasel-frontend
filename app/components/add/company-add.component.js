@@ -9,28 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ServiceAddComponent = (function () {
-    function ServiceAddComponent() {
-        this.service = {
+var CompanyAddComponent = (function () {
+    function CompanyAddComponent() {
+        this.company = {
             id: '.',
             name: '.',
-            type: 'GET',
-            body: '{}'
         };
     }
-    ServiceAddComponent.prototype.onSend = function () {
-        this.service.body = JSON.parse(JSON.stringify(eval("(" + this.service.body + ")")));
-        console.info(this.service);
+    CompanyAddComponent.prototype.onSend = function () {
+        console.info(this.company);
     };
     ;
-    ServiceAddComponent = __decorate([
+    CompanyAddComponent = __decorate([
         core_1.Component({
-            selector: 'service-add',
-            templateUrl: './app/components/add/service-add.html'
+            selector: 'company-add',
+            templateUrl: './app/components/add/company-add.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], ServiceAddComponent);
-    return ServiceAddComponent;
+    ], CompanyAddComponent);
+    return CompanyAddComponent;
 }());
-exports.ServiceAddComponent = ServiceAddComponent;
-//# sourceMappingURL=service-add.component.js.map
+exports.CompanyAddComponent = CompanyAddComponent;
+//# sourceMappingURL=company-add.component.js.map

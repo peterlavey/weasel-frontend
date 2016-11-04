@@ -19,8 +19,8 @@ var DashboardComponent = (function () {
         this.title = 'Soy el title';
         this.variable = 'asdasd';
     }
-    DashboardComponent.prototype.onSelect = function (service) {
-        this.selectedService = service;
+    DashboardComponent.prototype.onSelect = function (company) {
+        this.selectedCompany = company;
     };
     DashboardComponent = __decorate([
         core_1.Component({

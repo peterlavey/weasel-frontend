@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ServiceDetailComponent = (function () {
-    function ServiceDetailComponent() {
+var CompanyListComponent = (function () {
+    function CompanyListComponent() {
     }
-    ServiceDetailComponent = __decorate([
+    CompanyListComponent = __decorate([
         core_1.Component({
-            selector: 'service-detail',
-            templateUrl: './app/components/detail/service-detail.html'
+            selector: 'company-list',
+            templateUrl: './app/components/list/company-list.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], ServiceDetailComponent);
-    return ServiceDetailComponent;
+    ], CompanyListComponent);
+    return CompanyListComponent;
 }());
-exports.ServiceDetailComponent = ServiceDetailComponent;
-//# sourceMappingURL=service-detail.component.js.map
+exports.CompanyListComponent = CompanyListComponent;
+//# sourceMappingURL=company-list.component.js.map

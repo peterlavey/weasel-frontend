@@ -2,22 +2,31 @@ import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 import {DashboardComponent} from '../components/dashboard/dashboard.component';
-import {ServiceDetailComponent} from '../components/detail/service-detail.component';
-import {ServiceListComponent} from '../components/list/service-list.component';
-import {ServiceAddComponent} from '../components/add/service-add.component';
+import {CompanyDetailComponent} from '../components/detail/company-detail.component';
+import {CompanyListComponent} from '../components/list/company-list.component';
+import {CompanyAddComponent} from '../components/add/company-add.component';
+import {LoginComponent} from '../components/login/login.component';
 
 const routes: Routes=[
   {
-    path:'',
-    component:ServiceListComponent
+    path:'company-list',
+    component:CompanyListComponent
   },
   {
-    path:'service-detail',
-    component:ServiceDetailComponent
+    path:'login',
+    component:LoginComponent
   },
   {
-    path:'service-add',
-    component:ServiceAddComponent
+    path:'company-detail',
+    component:CompanyDetailComponent
+  },
+  {
+    path:'company-add',
+    component:CompanyAddComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

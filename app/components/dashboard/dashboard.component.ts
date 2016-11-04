@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import {Service} from '../../models/service';
+import {Company} from '../../models/company';
 
 /*const SERVICES:Service[]=[
   {id:1, name:'servicio1', type:'GET'},
@@ -17,8 +17,8 @@ export class DashboardComponent{
   title='Soy el title';
   variable='asdasd';
   //services=SERVICES;
-  selectedService:Service;
-  onSelect(service:Service):void{
-    this.selectedService=service;
+  selectedCompany:Company;
+  onSelect(company:Company):void{
+    this.selectedCompany=company;
   }
 }

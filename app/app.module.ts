@@ -1,17 +1,35 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
+import {HttpModule} from '@angular/http';
 
 import {ROUTES} from './routes/app.routing';
 
 import {DashboardComponent} from './components/dashboard/dashboard.component';
-import {ServiceDetailComponent} from './components/detail/service-detail.component';
-import {ServiceListComponent} from './components/list/service-list.component';
-import {ServiceAddComponent} from './components/add/service-add.component';
+import {CompanyDetailComponent} from './components/detail/company-detail.component';
+import {CompanyListComponent} from './components/list/company-list.component';
+import {CompanyAddComponent} from './components/add/company-add.component';
+import {LoginComponent} from './components/login/login.component';
+
+import {AuthenticationService} from './services/authentication/authentication.service';
 
 @NgModule({
-  imports: [BrowserModule, ROUTES, FormsModule],
-  declarations: [DashboardComponent, ServiceDetailComponent, ServiceListComponent, ServiceAddComponent],
-  bootstrap: [DashboardComponent]
+  imports: [
+    BrowserModule,
+    ROUTES,
+    FormsModule,
+    HttpModule
+  ],
+  declarations: [
+    LoginComponent,
+    DashboardComponent,
+    CompanyDetailComponent,
+    CompanyListComponent,
+    CompanyAddComponent
+  ],
+  providers:[
+    AuthenticationService
+  ],
+  bootstrap: [LoginComponent]
 })
 export class AppModule{}

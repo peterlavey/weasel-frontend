@@ -1,20 +1,29 @@
 "use strict";
 var router_1 = require('@angular/router');
-var service_detail_component_1 = require('../components/detail/service-detail.component');
-var service_list_component_1 = require('../components/list/service-list.component');
-var service_add_component_1 = require('../components/add/service-add.component');
+var company_detail_component_1 = require('../components/detail/company-detail.component');
+var company_list_component_1 = require('../components/list/company-list.component');
+var company_add_component_1 = require('../components/add/company-add.component');
+var login_component_1 = require('../components/login/login.component');
 var routes = [
     {
-        path: '',
-        component: service_list_component_1.ServiceListComponent
+        path: 'company-list',
+        component: company_list_component_1.CompanyListComponent
     },
     {
-        path: 'service-detail',
-        component: service_detail_component_1.ServiceDetailComponent
+        path: 'login',
+        component: login_component_1.LoginComponent
     },
     {
-        path: 'service-add',
-        component: service_add_component_1.ServiceAddComponent
+        path: 'company-detail',
+        component: company_detail_component_1.CompanyDetailComponent
+    },
+    {
+        path: 'company-add',
+        component: company_add_component_1.CompanyAddComponent
+    },
+    {
+        path: '**',
+        redirectTo: ''
     }
 ];
 exports.ROUTES = router_1.RouterModule.forRoot(routes);

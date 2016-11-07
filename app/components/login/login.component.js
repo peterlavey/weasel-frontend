@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var authentication_service_1 = require('../../services/authentication/authentication.service');
 var LoginComponent = (function () {
-    function LoginComponent(_authenticationService) {
+    function LoginComponent(_router, _authenticationService) {
+        this._router = _router;
         this._authenticationService = _authenticationService;
     }
     LoginComponent.prototype.ngAfterViewInit = function () {
@@ -22,6 +24,7 @@ var LoginComponent = (function () {
             "onSuccess": function (googleUser) {
                 var id_token = googleUser.getAuthResponse().id_token;
                 _this._authenticationService.login(id_token);
+                _this._router.navigate(['/']);
             },
             "onfailure": function (err) { return console.log("error:" + err); }
         });
@@ -40,7 +43,7 @@ var LoginComponent = (function () {
             selector: 'login',
             templateUrl: './app/components/login/login.html'
         }), 
-        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])
+        __metadata('design:paramtypes', [router_1.Router, authentication_service_1.AuthenticationService])
     ], LoginComponent);
     return LoginComponent;
 }());

@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { Router } from '@angular/router';
+
 import {AuthenticationService} from '../../services/authentication/authentication.service';
 
 declare var gapi:any;
@@ -9,16 +11,20 @@ declare var gapi:any;
 })
 
 export class LoginComponent {
-  constructor(private _authenticationService:AuthenticationService){}
+  constructor(
+    private _router:Router,
+    private _authenticationService:AuthenticationService
+  ){}
   ngAfterViewInit() {
     gapi.signin2.render(
       "google-login-button",
       {
         "scope": "profile email",
         "theme": "dark",
-        "onSuccess": (googleUser) {
+        "onSuccess": (googleUser)=>{
           let id_token = googleUser.getAuthResponse().id_token;
           this._authenticationService.login(id_token);
+          this._router.navigate(['/']);
         },
         "onfailure": (err)=>console.log("error:"+err)
       });

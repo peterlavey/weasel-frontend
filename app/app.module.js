@@ -13,12 +13,15 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
 var app_routing_1 = require('./routes/app.routing');
+var app_component_1 = require('./app.component');
+var home_component_1 = require('./components/home/home.component');
 var dashboard_component_1 = require('./components/dashboard/dashboard.component');
 var company_detail_component_1 = require('./components/detail/company-detail.component');
 var company_list_component_1 = require('./components/list/company-list.component');
 var company_add_component_1 = require('./components/add/company-add.component');
 var login_component_1 = require('./components/login/login.component');
 var authentication_service_1 = require('./services/authentication/authentication.service');
+var auth_guard_1 = require('./guards/auth.guard');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,6 +34,8 @@ var AppModule = (function () {
                 http_1.HttpModule
             ],
             declarations: [
+                app_component_1.AppComponent,
+                home_component_1.HomeComponent,
                 login_component_1.LoginComponent,
                 dashboard_component_1.DashboardComponent,
                 company_detail_component_1.CompanyDetailComponent,
@@ -38,9 +43,10 @@ var AppModule = (function () {
                 company_add_component_1.CompanyAddComponent
             ],
             providers: [
-                authentication_service_1.AuthenticationService
+                authentication_service_1.AuthenticationService,
+                auth_guard_1.AuthGuard
             ],
-            bootstrap: [login_component_1.LoginComponent]
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

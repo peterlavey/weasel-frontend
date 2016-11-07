@@ -13,18 +13,15 @@ var routes = [
     },
     {
         path: '',
-        component: home_component_1.HomeComponent,
-        canActivate: [auth_guard_1.AuthGuard]
+        component: home_component_1.HomeComponent
     },
     {
         path: 'company-list',
-        component: company_list_component_1.CompanyListComponent,
-        canActivate: [auth_guard_1.AuthGuard]
+        component: company_list_component_1.CompanyListComponent
     },
     {
         path: 'company-detail',
-        component: company_detail_component_1.CompanyDetailComponent,
-        canActivate: [auth_guard_1.AuthGuard]
+        component: company_detail_component_1.CompanyDetailComponent
     },
     {
         path: 'company-add',

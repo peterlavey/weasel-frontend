@@ -9,16 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var authentication_service_1 = require('./services/authentication/authentication.service');
+var router_1 = require('@angular/router');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_authenticationService, _router) {
+        this._authenticationService = _authenticationService;
+        this._router = _router;
     }
+    AppComponent.prototype.signOut = function () {
+        this._authenticationService.logout();
+        this._router.navigate(['/']);
+    };
+    ;
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'app',
             templateUrl: 'app.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [authentication_service_1.AuthenticationService, router_1.Router])
     ], AppComponent);
     return AppComponent;
 }());

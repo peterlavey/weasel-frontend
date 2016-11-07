@@ -21,6 +21,8 @@ export class LoginComponent {
       {
         "scope": "profile email",
         "theme": "dark",
+        'width': 240,
+        'height': 30,
         "onSuccess": (googleUser)=>{
           let id_token = googleUser.getAuthResponse().id_token;
           this._authenticationService.login(id_token);
@@ -28,12 +30,5 @@ export class LoginComponent {
         },
         "onfailure": (err)=>console.log("error:"+err)
       });
-  };
-  signOut() {
-  /*  let auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(()=>{
-      console.log('User signed out.');
-    });*/
-    this._authenticationService.logout();
   };
 }

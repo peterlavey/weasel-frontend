@@ -5,4 +5,6 @@ import {Component, Input} from '@angular/core';
   templateUrl:'home.component.html'
 })
 
-export class HomeComponent{}
+export class HomeComponent{
+  constructor(){}
+}

@@ -8,18 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
+var core_1 = require("@angular/core");
 var CompanyListComponent = (function () {
     function CompanyListComponent() {
+        this._companies = [
+            { id: '1', name: 'Twitter', salary: '$500000', teamwork: 3, facilities: 2, languages: [{ name: 'javascript', level: 2 }, { name: 'java', level: 5 }] },
+            { id: '2', name: 'Google', salary: '$500000', teamwork: 3, facilities: 2, languages: [{ name: 'javascript', level: 4 }] },
+            { id: '3', name: 'Facebook', salary: '$500000', teamwork: 3, facilities: 2, languages: [{ name: 'javascript', level: 2 }, { name: 'java', level: 5 }, { name: 'php', level: 1 }] }
+        ];
     }
-    CompanyListComponent = __decorate([
-        core_1.Component({
-            selector: 'company-list',
-            templateUrl: './app/components/list/company-list.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], CompanyListComponent);
     return CompanyListComponent;
 }());
+CompanyListComponent = __decorate([
+    core_1.Component({
+        selector: 'company-list',
+        templateUrl: './app/components/list/company-list.html'
+    }),
+    __metadata("design:paramtypes", [])
+], CompanyListComponent);
 exports.CompanyListComponent = CompanyListComponent;
 //# sourceMappingURL=company-list.component.js.map

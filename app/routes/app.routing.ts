@@ -17,18 +17,15 @@ const routes: Routes=[
   },
   {
     path:'',
-    component:HomeComponent,
-    canActivate:[AuthGuard]
+    component:HomeComponent
   },
   {
     path:'company-list',
-    component:CompanyListComponent,
-    canActivate:[AuthGuard]
+    component:CompanyListComponent
   },
   {
     path:'company-detail',
-    component:CompanyDetailComponent,
-    canActivate:[AuthGuard]
+    component:CompanyDetailComponent
   },
   {
     path:'company-add',

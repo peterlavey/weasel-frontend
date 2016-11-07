@@ -1,1 +1,14 @@
-<h1>Listaaaa!!!!!!!!</h1>
+<h1>Companies</h1>
+<div class="row">
+  <div class="col-sm-3" *ngFor="let company of _companies">
+    <div class="card card-block">
+      <h3 class="card-title">{{company.name}}</h3>
+      <p class="card-text">{{company.salary}}</p>
+      <p class="card-text" *ngFor="let language of company.languages">
+        {{language.name}}
+        <progress class="progress progress-success" value="{{language.level}}" max="5"></progress>
+      </p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>

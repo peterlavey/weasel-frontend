@@ -21,6 +21,8 @@ var LoginComponent = (function () {
         gapi.signin2.render("google-login-button", {
             "scope": "profile email",
             "theme": "dark",
+            'width': 240,
+            'height': 30,
             "onSuccess": function (googleUser) {
                 var id_token = googleUser.getAuthResponse().id_token;
                 _this._authenticationService.login(id_token);
@@ -28,14 +30,6 @@ var LoginComponent = (function () {
             },
             "onfailure": function (err) { return console.log("error:" + err); }
         });
-    };
-    ;
-    LoginComponent.prototype.signOut = function () {
-        /*  let auth2 = gapi.auth2.getAuthInstance();
-          auth2.signOut().then(()=>{
-            console.log('User signed out.');
-          });*/
-        this._authenticationService.logout();
     };
     ;
     LoginComponent = __decorate([

@@ -9,6 +9,15 @@ import { ListComponent } from './list/list.component';
 import { RestComponent } from './rest/rest.component';
 import { AddComponent } from './add/add.component';
 
+import { ProcessService } from './process.service';
+
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'list', component: ListComponent },
+  { path: 'add', component: AddComponent },
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +29,10 @@ import { AddComponent } from './add/add.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ProcessService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

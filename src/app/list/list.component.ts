@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
 
 @Component({
@@ -8,16 +9,16 @@ import { Rest } from '../rest';
 })
 export class ListComponent implements OnInit {
   rests: Rest[];
-  constructor() {
-    this.rests = [
-      {id:'1', name:'caca', type:'POST'},
-      {id:'2', name:'qeqe', type:'GET'},
-      {id:'3', name:'tototo', type:'GET'}
-    ]
+  constructor(private _processService: ProcessService) {
+    this.getRests();
   }
 
   ngOnInit() {
 
   }
 
+  getRests(): void{
+    this._processService.getServices().subscribe(data => this.rests = data);
+  }
+  
 }

@@ -1,27 +1,34 @@
-//import { Injectable }     from '@angular/core';
-//import { Http, Headers } from '@angular/http';
-//import 'rxjs/add/operator/toPromise';
 import { Rest } from './rest';
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProcessService {
   private _headers = new Headers({'Content-Type': 'application/json'});
+  private _options = new RequestOptions({ headers: this._headers });
 
   constructor(private _http:  Http) {
 
   }
 
   getServices(): Observable<Rest[]>{
-    return this._http.get('http://localhost:3002/weasel-api/list', {headers: this._headers}).map(res => res.json());
+    return this._http.get('http://localhost:3002/weasel-api/list', this._options).map((res: Response) => res.json());
   }
 
   addService(rest: Rest): Observable<any>{
-    console.info(rest);
-    return this._http.post('http://localhost:3002/weasel-api/add', JSON.stringify(rest), {headers: this._headers}).map(res => console.info(res));
+    console.info(JSON.stringify(rest));
+    let body = JSON.stringify(rest);
+    return this._http.post('http://localhost:3002/weasel-api/add', body, this._options);
+  }
+
+  startServices(): Observable<any>{
+    return this._http.get('http://localhost:3002/weasel-api/start', this._options).map((res: Response) => res.json());
+  }
+
+  stopServices(): Observable<any>{
+    return this._http.get('http://localhost:3002/weasel-api/kill', this._options).map((res: Response) => res.json());
   }
 
   private handleError(error: any): Promise<any> {

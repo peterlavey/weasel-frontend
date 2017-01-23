@@ -17,11 +17,11 @@ export class AddComponent implements OnInit {
     this._rest={
       name:'',
       path:'',
-      response:{}
+      response:''
     };
   }
 
   addRest(){
-    this._processService.addService(this._rest);
+    this._processService.addService(this._rest).subscribe(res  => console.log(res), error =>  console.error(error));
   }
 }

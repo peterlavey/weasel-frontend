@@ -14,8 +14,8 @@ export class ProcessService {
 
   }
 
-  getFolder(): Observable<Folder>{
-    return this._http.get('http://localhost:3002/weasel-api/list/folders/folder1', this._options).map((res: Response) => res.json());
+  getFolder(name:string): Observable<Folder>{
+    return this._http.get('http://localhost:3002/weasel-api/list/folders/' + name, this._options).map((res: Response) => res.json());
   }
 
   getServices(): Observable<Rest[]>{
@@ -28,8 +28,8 @@ export class ProcessService {
     return this._http.post('http://localhost:3002/weasel-api/add', body, this._options);
   }
 
-  startServices(): Observable<any>{
-    return this._http.get('http://localhost:3002/weasel-api/start', this._options).map((res: Response) => res.json());
+  startServices(name:string): Observable<any>{
+    return this._http.get('http://localhost:3002/weasel-api/start/' + name, this._options).map((res: Response) => res.json());
   }
 
   stopServices(): Observable<any>{

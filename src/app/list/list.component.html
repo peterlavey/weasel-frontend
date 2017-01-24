@@ -1,5 +1,5 @@
 <div class="" *ngIf="folder">
-  {{folder.name}}
+  <h1>{{folder.name}}</h1>
   <div class="" *ngIf="folder.content.length">
     <button type="button" class="btn btn-primary" (click)="startRest()">Start</button>
     <button type="button" class="btn btn-primary" (click)="stopRest()">Stop</button>
@@ -9,7 +9,7 @@
   </div>
   <div class="" *ngIf="folder.folders.length">
     <div class="test" *ngFor="let folder of folder.folders">
-      <app-folder [folder]="folder"></app-folder>
+      <app-folder [folder]="folder" (click)="getFolder(folder)"></app-folder>
     </div>
   </div>
 </div>

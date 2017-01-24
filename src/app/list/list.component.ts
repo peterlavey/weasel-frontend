@@ -12,15 +12,15 @@ export class ListComponent implements OnInit {
   folder: Folder;
   rests: Rest[];
   constructor(private _processService: ProcessService) {
-    this.getFolder();
+    this.getFolder('root');
   }
 
   ngOnInit() {
 
   }
 
-  getFolder(): void {
-    this._processService.getFolder().subscribe(data => {
+  getFolder(name:string): void {
+    this._processService.getFolder(name).subscribe(data => {
       this.folder = data;
     });
   }
@@ -32,7 +32,7 @@ export class ListComponent implements OnInit {
   }
 
   startRest(): void {
-    this._processService.startServices().subscribe(data => console.info(data));
+    this._processService.startServices(this.folder.name).subscribe(data => console.info(data));
   }
 
   stopRest(): void {

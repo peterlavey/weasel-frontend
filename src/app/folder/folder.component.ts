@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProcessService } from '../process.service';
 import { Folder } from '../folder';
 
 @Component({
@@ -8,9 +9,8 @@ import { Folder } from '../folder';
 })
 export class FolderComponent implements OnInit {
   @Input() folder: Folder;
-  constructor() { }
+  constructor(private _processService: ProcessService) { }
 
   ngOnInit() {
   }
-
 }

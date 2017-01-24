@@ -1,4 +1,5 @@
 import { Rest } from './rest';
+import { Folder } from './folder';
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -13,8 +14,12 @@ export class ProcessService {
 
   }
 
+  getFolder(): Observable<Folder>{
+    return this._http.get('http://localhost:3002/weasel-api/list/folders/folder1', this._options).map((res: Response) => res.json());
+  }
+
   getServices(): Observable<Rest[]>{
-    return this._http.get('http://localhost:3002/weasel-api/list', this._options).map((res: Response) => res.json());
+    return this._http.get('http://localhost:3002/weasel-api/list/rests', this._options).map((res: Response) => res.json());
   }
 
   addService(rest: Rest): Observable<any>{

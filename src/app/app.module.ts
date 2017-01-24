@@ -12,6 +12,7 @@ import { AddComponent } from './add/add.component';
 import { ProcessService } from './process.service';
 
 import { RouterModule, Routes } from '@angular/router';
+import { FolderComponent } from './folder/folder.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     ListComponent,
     RestComponent,
-    AddComponent
+    AddComponent,
+    FolderComponent
   ],
   imports: [
     BrowserModule,

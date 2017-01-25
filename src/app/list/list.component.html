@@ -1,5 +1,12 @@
 <div class="" *ngIf="folder">
   <h1>{{folder.name}}</h1>
+  
+  <nav class="breadcrumb">
+    <ol *ngFor="let directory of breadcrumb">
+      <li (click)="navigate(directory)"> / {{directory}}</li>
+    </ol>
+  </nav>
+
   <div class="" *ngIf="folder.content.length">
     <button type="button" class="btn btn-primary" (click)="startRest()">Start</button>
     <button type="button" class="btn btn-primary" (click)="stopRest()">Stop</button>

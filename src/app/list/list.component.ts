@@ -11,7 +11,9 @@ import { Folder } from '../folder';
 export class ListComponent implements OnInit {
   folder: Folder;
   rests: Rest[];
+  breadcrumb: string[];
   constructor(private _processService: ProcessService) {
+    this.breadcrumb=[];
     this.getFolder('root');
   }
 
@@ -22,7 +24,14 @@ export class ListComponent implements OnInit {
   getFolder(name:string): void {
     this._processService.getFolder(name).subscribe(data => {
       this.folder = data;
+      this.breadcrumb.push(data.name);
     });
+  }
+
+  navigate(directory:string){
+    this.breadcrumb.splice(this.breadcrumb.indexOf(directory));
+
+    this.getFolder(directory);
   }
 
   getRests(): void {

@@ -1,6 +1,9 @@
+
 <div class="" *ngIf="folder">
+  <input type="text" value="" [(ngModel)]="newFolder.name">
+  <button type="button" class="btn btn-primary" (click)="createFolder()">Create Folder</button>
   <h1>{{folder.name}}</h1>
-  
+
   <nav class="breadcrumb">
     <ol *ngFor="let directory of breadcrumb">
       <li (click)="navigate(directory)"> / {{directory}}</li>

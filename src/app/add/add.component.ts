@@ -9,6 +9,7 @@ import { Rest } from '../rest';
 })
 export class AddComponent implements OnInit {
   private _rest:Rest;
+  
   constructor(private _processService: ProcessService) {
 
   }

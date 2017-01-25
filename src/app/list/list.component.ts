@@ -9,10 +9,17 @@ import { Folder } from '../folder';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  newFolder: any;
   folder: Folder;
   rests: Rest[];
   breadcrumb: string[];
   constructor(private _processService: ProcessService) {
+    this.newFolder={
+      id:0,
+      name:'',
+      content:[],
+      folders:[]
+    };
     this.breadcrumb=[];
     this.getFolder('root');
   }
@@ -25,6 +32,12 @@ export class ListComponent implements OnInit {
     this._processService.getFolder(name).subscribe(data => {
       this.folder = data;
       this.breadcrumb.push(data.name);
+    });
+  }
+
+  createFolder(): void{
+    this._processService.createFolder(this.folder.name, this.newFolder).subscribe(data =>{
+      this.folder.folders.push(this.newFolder.name);
     });
   }
 

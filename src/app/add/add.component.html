@@ -1,4 +1,5 @@
 <div>
+  <h1>Create rests</h1>
   <div class="form-group">
     <label for="exampleInputEmail1">Name</label>
     <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_rest.name">
@@ -15,6 +16,6 @@
     <label for="exampleSelect2">Response (deshabilitado)</label>
     <textarea class="form-control" rows="10" placeholder="{json:'example'}" [(ngModel)]="_rest.response"></textarea>
   </div>
-  
+
   <button type="button" class="btn btn-primary" (click)="addRest()">Submit</button>
 </div>

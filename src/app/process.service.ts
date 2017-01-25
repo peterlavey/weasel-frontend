@@ -27,10 +27,10 @@ export class ProcessService {
     return this._http.get('http://localhost:3002/weasel-api/list/rests', this._options).map((res: Response) => res.json());
   }
 
-  addService(rest: Rest): Observable<any>{
+  addService(name: string, rest: Rest): Observable<any>{
     console.info(JSON.stringify(rest));
     let body = JSON.stringify(rest);
-    return this._http.post('http://localhost:3002/weasel-api/add', body, this._options);
+    return this._http.post('http://localhost:3002/weasel-api/add/rest/' + name, body, this._options);
   }
 
   startServices(name:string): Observable<any>{

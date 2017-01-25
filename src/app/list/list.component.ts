@@ -11,6 +11,8 @@ import { Folder } from '../folder';
 export class ListComponent implements OnInit {
   newFolder: any;
   folder: Folder;
+
+  newRest: any;
   rests: Rest[];
   breadcrumb: string[];
   constructor(private _processService: ProcessService) {
@@ -20,6 +22,13 @@ export class ListComponent implements OnInit {
       content:[],
       folders:[]
     };
+
+    this.newRest={
+      name:'',
+      path:'',
+      response:''
+    };
+
     this.breadcrumb=[];
     this.getFolder('root');
   }
@@ -50,6 +59,12 @@ export class ListComponent implements OnInit {
   getRests(): void {
     this._processService.getServices().subscribe(data => {
       this.rests = data;
+    });
+  }
+
+  createRest(){
+    this._processService.addService(this.folder.name, this.newRest).subscribe(res  => {
+      this.folder.content.push(this.newRest);
     });
   }
 

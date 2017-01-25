@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
 
@@ -9,7 +9,8 @@ import { Rest } from '../rest';
 })
 export class AddComponent implements OnInit {
   private _rest:Rest;
-  
+  @Input() directory: string;
+
   constructor(private _processService: ProcessService) {
 
   }
@@ -23,6 +24,6 @@ export class AddComponent implements OnInit {
   }
 
   addRest(){
-    this._processService.addService(this._rest).subscribe(res  => console.log(res), error =>  console.error(error));
+    this._processService.addService(this.directory, this._rest).subscribe(res  => this._processService.getFolder(this.directory), error =>  console.error(error));
   }
 }

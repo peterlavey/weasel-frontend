@@ -1,21 +1,41 @@
-<div>
-  <h1>Create rests</h1>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Name</label>
-    <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_rest.name">
-    <small id="emailHelp" class="form-text text-muted">Un nombre descriptivo.</small>
+<div class="row">
+  <div class="col">
+    <i class="fa fa-folder-o fa-2x white" aria-hidden="true"></i>
+  </div>
+  <div class="col">
+    <i class="fa fa-plus fa-2x white" aria-hidden="true"></i>
+  </div>
+  <div class="col">
+    <i class="fa fa-cog fa-2x white" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="" style="display:none">
+  <!--  CREATE FOLDER -->
+  <div class="">
+    <input type="text" value="" [(ngModel)]="_newFolder.name">
+    <button type="button" class="btn btn-primary" (click)="createFolder()">Create Folder</button>
   </div>
 
-  <div class="form-group">
-    <label for="exampleInputEmail1">Path</label>
-    <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_rest.path">
-    <small id="emailHelp" class="form-text text-muted">Un nombre descriptivo.</small>
-  </div>
+  <!--  CREATE REST -->
+  <div class="">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_newRest.name">
+      <small id="emailHelp" class="form-text text-muted">Un nombre descriptivo.</small>
+    </div>
 
-  <div class="form-group">
-    <label for="exampleSelect2">Response (deshabilitado)</label>
-    <textarea class="form-control" rows="10" placeholder="{json:'example'}" [(ngModel)]="_rest.response"></textarea>
-  </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Path</label>
+      <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_newRest.path">
+      <small id="emailHelp" class="form-text text-muted">Un nombre descriptivo.</small>
+    </div>
 
-  <button type="button" class="btn btn-primary" (click)="addRest()">Submit</button>
+    <div class="form-group">
+      <label for="exampleSelect2">Response (deshabilitado)</label>
+      <textarea class="form-control" rows="10" placeholder="{json:'example'}" [(ngModel)]="_newRest.response"></textarea>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="createRest()">Create Rest</button>
+  </div>
 </div>

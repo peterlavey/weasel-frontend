@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
+import { Folder } from '../folder';
 
 @Component({
   selector: 'app-add',
@@ -8,22 +9,40 @@ import { Rest } from '../rest';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-  private _rest:Rest;
-  @Input() directory: string;
+  private _newRest:any;
+  private _newFolder:any;
+
+  @Input() folder: Folder;
+  @Output() folderChange= new EventEmitter<Folder>();
 
   constructor(private _processService: ProcessService) {
+    this._newFolder={
+      id:0,
+      name:'',
+      content:[],
+      folders:[]
+    };
 
-  }
-
-  ngOnInit() {
-    this._rest={
+    this._newRest={
       name:'',
       path:'',
       response:''
     };
   }
 
-  addRest(){
-    this._processService.addService(this.directory, this._rest).subscribe(res  => this._processService.getFolder(this.directory), error =>  console.error(error));
+  ngOnInit() { }
+
+  createFolder(): void{
+    this._processService.createFolder(this.folder.name, this._newFolder).subscribe(res =>{
+      this.folder.folders.push(this._newFolder.name);
+      this.folderChange.emit(this.folder);
+    });
+  }
+
+  createRest(){
+    this._processService.addService(this.folder.name, this._newRest).subscribe(res  => {
+      this.folder.content.push(this._newRest);
+      this.folderChange.emit(this.folder);
+    });
   }
 }

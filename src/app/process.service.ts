@@ -15,12 +15,12 @@ export class ProcessService {
   }
 
   getFolder(name:string): Observable<Folder>{
-    return this._http.get('http://localhost:3002/weasel-api/list/folders/' + name, this._options).map((res: Response) => res.json());
+    return this._http.get(`http://localhost:3002/weasel-api/list/folders/${name}`, this._options).map((res: Response) => res.json());
   }
 
   createFolder(name: string, folder: Folder){
     let body = JSON.stringify(folder);
-    return this._http.post('http://localhost:3002/weasel-api/add/folder/' + name, body, this._options);
+    return this._http.post(`http://localhost:3002/weasel-api/add/folder/${name}`, body, this._options);
   }
 
   getServices(): Observable<Rest[]>{
@@ -30,15 +30,15 @@ export class ProcessService {
   addService(name: string, rest: Rest): Observable<any>{
     console.info(JSON.stringify(rest));
     let body = JSON.stringify(rest);
-    return this._http.post('http://localhost:3002/weasel-api/add/rest/' + name, body, this._options);
+    return this._http.post(`http://localhost:3002/weasel-api/add/rest/${name}`, body, this._options);
   }
 
   startServices(name:string): Observable<any>{
-    return this._http.get('http://localhost:3002/weasel-api/start/' + name, this._options).map((res: Response) => res.json());
+    return this._http.get(`http://localhost:3002/weasel-api/start/${name}`, this._options).map((res: Response) => console.log(res));
   }
 
   stopServices(): Observable<any>{
-    return this._http.get('http://localhost:3002/weasel-api/kill', this._options).map((res: Response) => res.json());
+    return this._http.get('http://localhost:3002/weasel-api/kill', this._options).map((res: Response) => console.log(res));
   }
 
   private handleError(error: any): Promise<any> {

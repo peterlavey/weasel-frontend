@@ -1,0 +1,19 @@
+<nav class="navbar fixed-bottom navbar-inverse bg-inverse">
+  <div class="row">
+    <div class="col-md-1">
+      <a class="navbar-brand" href="#">
+        <img src="http://placehold.it/35x35" width="30" height="30" class="rounded-circle d-inline-block align-top" alt="">
+        Weasel
+      </a>
+    </div>
+    <div class="col-md-5">
+      <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)"></app-breadcrumb>
+    </div>
+    <div class="col-md-4">
+      <app-add [folder]="folder" (folderChange)="emitParent($event)"></app-add>
+    </div>
+    <div class="col-md-2">
+      <app-switch [folder]="folder"></app-switch>
+    </div>
+  </div>
+</nav>

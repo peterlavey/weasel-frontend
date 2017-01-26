@@ -1,0 +1,20 @@
+.breadcrumb{
+  background-color: transparent;
+  color: #00bfff;
+  display: flex;
+  padding: initial;
+}
+
+.breadcrumb ol{
+  list-style-type: none;
+  margin: initial;
+  padding: initial;
+}
+
+/*.breadcrumb ol li:before{
+  content: ' > '
+}*/
+
+.breadcrumb ol:last-child{
+  color: #a2a2a2;
+}

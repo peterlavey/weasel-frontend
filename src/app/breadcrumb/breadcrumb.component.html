@@ -1,0 +1,5 @@
+<nav class="breadcrumb">
+  <ol *ngFor="let directory of directories">
+    <li (click)="navigate(directory)"> > {{directory}} </li>
+  </ol>
+</nav>

@@ -1,0 +1,22 @@
+.offcanvas{
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  padding: 2%;
+  background-color: #3b3e40;
+  color: #FFF;
+  left: 100%;
+  transition: 600ms;
+}
+
+.open{
+  transition: 600ms;
+  left: 75%;
+}
+
+.offcanvas i{
+  position: absolute;
+  left: 90%;
+  z-index: 1;
+}

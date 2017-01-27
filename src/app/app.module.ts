@@ -16,6 +16,8 @@ import { FolderComponent } from './folder/folder.component';
 import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { SwitchComponent } from './switch/switch.component';
+import { SearchComponent } from './search/search.component';
+import { BynamePipe } from './byname.pipe';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
     FolderComponent,
     FooterComponent,
     BreadcrumbComponent,
-    SwitchComponent
+    SwitchComponent,
+    SearchComponent,
+    BynamePipe
   ],
   imports: [
     BrowserModule,

@@ -12,4 +12,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  openModal(){
+    document.querySelector('.offcanvas').className = 'offcanvas open';
+  }
 }

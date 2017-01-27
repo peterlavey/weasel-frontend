@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
 import { Folder } from '../folder';
+import { Options } from '../options';
 
 @Component({
   selector: 'app-add',
@@ -11,6 +12,8 @@ import { Folder } from '../folder';
 export class AddComponent implements OnInit {
   private _newRest:any;
   private _newFolder:any;
+  private _options: any;
+  public port: string;
 
   @Input() folder: Folder;
   @Output() folderChange= new EventEmitter<Folder>();
@@ -28,9 +31,16 @@ export class AddComponent implements OnInit {
       path:'',
       response:''
     };
+
+    this._options = {
+      port:''
+    };
+
+    this.getOptions();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
   createFolder(): void{
     this._processService.createFolder(this.folder.name, this._newFolder).subscribe(res =>{
@@ -44,5 +54,23 @@ export class AddComponent implements OnInit {
       this.folder.content.push(this._newRest);
       this.folderChange.emit(this.folder);
     });
+  }
+
+  getOptions(){
+    this._processService.getOptions().subscribe((res)=> {
+      this._options = res;
+      this.updatePortDOM();
+    });
+  }
+
+  saveOptions(){
+    this._processService.saveOptions(this._options).subscribe(res =>{
+      this.updatePortDOM();
+    });
+  }
+
+  updatePortDOM(){
+    this.port = this._options.port;
+    document.querySelector('#port').innerHTML = this.port;
   }
 }

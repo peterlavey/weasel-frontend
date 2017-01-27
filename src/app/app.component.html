@@ -4,3 +4,6 @@
   <app-list [folder]="$folder" (folderChange)="folderChange($event)"></app-list>
 </body>
 <app-footer [directories]="breadcrumb" [folder]="$folder" (folderChange)="$folder=$event"></app-footer>
+
+<app-search></app-search>
+<app-add [folder]="$folder" (folderChange)="$folder=$event"></app-add>

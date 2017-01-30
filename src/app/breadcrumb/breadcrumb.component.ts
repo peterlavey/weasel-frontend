@@ -18,7 +18,7 @@ export class BreadcrumbComponent implements OnInit {
 
   navigate(directory: string){
     this.directories.splice(this.directories.indexOf(directory));
-    //this._processService.stopServices();
+    this._processService.stopServices();
     this.getFolder(directory);
   }
 

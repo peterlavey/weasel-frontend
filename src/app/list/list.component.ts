@@ -12,15 +12,13 @@ export class ListComponent implements OnInit {
   rests: Rest[];
 
   @Input() folder: Folder;
-  @Output() folderChange= new EventEmitter<Folder>();
+  @Output() folderChange = new EventEmitter<Folder>();
 
   constructor(private _processService: ProcessService) {
     this.getFolder('root');
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   getFolder(name:string): void {
     this._processService.getFolder(name).subscribe(data => {
@@ -28,14 +26,4 @@ export class ListComponent implements OnInit {
       this.folderChange.emit(this.folder);
     });
   }
-
-  /*
-
-  getRests(): void {
-    this._processService.getServices().subscribe(data => {
-      this.rests = data;
-    });
-  }
-
-  */
 }

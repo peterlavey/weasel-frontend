@@ -1,7 +1,16 @@
 <div class="">
-  <div class="">
-    <h4 class="">{{rest.name}}</h4>
-    <p class="">{{rest.path}}</p>
+  <div class="row">
+    <div class="col-md-11">
+      <h4 class="">{{rest.name}}</h4>
+    </div>
+    <div class="col-md-1">
+      <i class="fa fa-times grey fa-1" (click)="removeRest()"></i>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="">{{rest.path}}</p>
+    </div>
   </div>
 </div>
 <hr>

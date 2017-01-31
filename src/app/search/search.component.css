@@ -15,7 +15,7 @@
   left: 75%;
 }
 
-.offcanvas i{
+.offcanvas .fa{
   position: absolute;
   left: 90%;
   z-index: 1;

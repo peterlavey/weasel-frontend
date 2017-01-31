@@ -30,7 +30,7 @@ export class ProcessService {
     return this._http.get('http://localhost:3002/weasel-api/list/rests', this._options).map((res: Response) => res.json());
   }
 
-  addService(name: string, rest: Rest): Observable<any>{
+  addRest(name: string, rest: Rest): Observable<any>{
     let body = JSON.stringify(rest);
     return this._http.post(`http://localhost:3002/weasel-api/add/rest/${name}`, body, this._options);
   }
@@ -43,6 +43,11 @@ export class ProcessService {
   removeRest(name: string, rest: Rest): Observable<any>{
     let body = JSON.stringify(rest);
     return this._http.post(`http://localhost:3002/weasel-api/remove/rest/${name}`, body, this._options).map((res: Response) => res.json());
+  }
+
+  addRestToFolder(name: string, rest: Rest): Observable<any>{
+    let body = JSON.stringify(rest);
+    return this._http.post(`http://localhost:3002/weasel-api/add/rest-folder/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   getOptions(): Observable<any>{

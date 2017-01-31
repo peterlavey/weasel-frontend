@@ -26,4 +26,9 @@ export class ListComponent implements OnInit {
       this.folderChange.emit(this.folder);
     });
   }
+
+  emitParent(folder: Folder){
+    this.folder = folder;
+    this.folderChange.emit(this.folder);
+  }
 }

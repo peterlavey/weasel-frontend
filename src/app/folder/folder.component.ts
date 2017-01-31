@@ -25,12 +25,12 @@ export class FolderComponent implements OnInit {
   }
 
   openConfirm(event){
-    $('#caca').modal('show');
+    $('#confirmDeleteFolder').modal('show');
     event.stopPropagation();
   }
 
   closeConfirm(event){
-    $('#caca').modal('hide');
+    $('#confirmDeleteFolder').modal('hide');
     event.stopPropagation();
   }
 

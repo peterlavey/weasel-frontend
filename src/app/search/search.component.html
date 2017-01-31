@@ -16,22 +16,41 @@
     <div class="col">
       <div *ngFor="let rest of (rests | byname: nameFilter)">
 
-        <div class="row">
-          <div class="col-md-11">
-            <h4 class="">{{rest.name}}</h4>
+        <div class="" (click)="validateToAdd(rest)">
+          <div class="row">
+            <div class="col-md-10">
+              <h4 class="">{{rest.name}}</h4>
+            </div>
+            <div class="col-md-2">
+              <i><small class="text-danger" (click)="openConfirm(rest, $event)">Delete</small></i>
+            </div>
           </div>
-          <div class="col-md-1">
-            <i class="fa fa-times grey fa-1" (click)="deleteRest(rest)"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <p class="">{{rest.path}}</p>
+          <div class="row">
+            <div class="col">
+              <p class="">{{rest.path}}</p>
+            </div>
           </div>
         </div>
 
       </div>
       <hr>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmDeleteRest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Este servicio se eliminará de todos los directorios donde fue agregado ¿Está seguro que desea eliminarlo?</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-error" (click)="deleteRest()">Aceptar</button>
+        <button type="button" class="btn btn-primary" (click)="closeConfirm()">Cancelar</button>
+      </div>
     </div>
   </div>
 </div>

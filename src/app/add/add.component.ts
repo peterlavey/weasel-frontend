@@ -51,7 +51,7 @@ export class AddComponent implements OnInit {
   }
 
   createRest(){
-    this._processService.addService(this.folder.name, this._newRest).subscribe(res  => {
+    this._processService.addRest(this.folder.name, this._newRest).subscribe(res  => {
       this.folder.content.push(this._newRest);
       this.folderChange.emit(this.folder);
       this.restChange.emit();

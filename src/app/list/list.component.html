@@ -9,7 +9,7 @@
 
   <div class="" *ngIf="folder.content.length">
     <div class="test" *ngFor="let rest of folder.content">
-      <app-rest [folder]="folder" [rest]="rest" (folderChange)="folder=$event"></app-rest>
+      <app-rest [folder]="folder" [rest]="rest" (folderChange)="emitParent($event)"></app-rest>
     </div>
   </div>
 

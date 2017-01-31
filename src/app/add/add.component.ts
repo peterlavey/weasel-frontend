@@ -16,7 +16,8 @@ export class AddComponent implements OnInit {
   public port: string;
 
   @Input() folder: Folder;
-  @Output() folderChange= new EventEmitter<Folder>();
+  @Output() folderChange = new EventEmitter<Folder>();
+  @Output() restChange = new EventEmitter<any>();
 
   constructor(private _processService: ProcessService) {
     this._newFolder={
@@ -53,6 +54,7 @@ export class AddComponent implements OnInit {
     this._processService.addService(this.folder.name, this._newRest).subscribe(res  => {
       this.folder.content.push(this._newRest);
       this.folderChange.emit(this.folder);
+      this.restChange.emit();
     });
   }
 

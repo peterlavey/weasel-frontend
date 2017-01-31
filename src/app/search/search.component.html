@@ -1,3 +1,7 @@
+<!-- Modal de los botones añadir -->
+<app-add [folder]="folder" (folderChange)="emitParent($event)" (restChange)="getRests()"></app-add>
+
+<!-- Off canvas del buscador -->
 <div class="offcanvas">
   <i class="fa fa-times fa-2x text-white" (click)="dismiss()"></i>
   <div class="row mb-4">
@@ -11,8 +15,23 @@
   <div class="row">
     <div class="col">
       <div *ngFor="let rest of (rests | byname: nameFilter)">
-        <app-rest [rest]="rest"></app-rest>
+
+        <div class="row">
+          <div class="col-md-11">
+            <h4 class="">{{rest.name}}</h4>
+          </div>
+          <div class="col-md-1">
+            <i class="fa fa-times grey fa-1" (click)="deleteRest(rest)"></i>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="">{{rest.path}}</p>
+          </div>
+        </div>
+
       </div>
+      <hr>
     </div>
   </div>
 </div>

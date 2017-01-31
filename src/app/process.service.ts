@@ -31,13 +31,16 @@ export class ProcessService {
   }
 
   addService(name: string, rest: Rest): Observable<any>{
-    console.info(JSON.stringify(rest));
     let body = JSON.stringify(rest);
     return this._http.post(`http://localhost:3002/weasel-api/add/rest/${name}`, body, this._options);
   }
 
+  deleteRest(name: string, rest: Rest): Observable<any>{
+    let body = JSON.stringify(rest);
+    return this._http.post(`http://localhost:3002/weasel-api/delete/rest/${name}`, body, this._options).map((res: Response) => res.json());
+  }
+
   removeRest(name: string, rest: Rest): Observable<any>{
-    console.info(JSON.stringify(rest));
     let body = JSON.stringify(rest);
     return this._http.post(`http://localhost:3002/weasel-api/remove/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }

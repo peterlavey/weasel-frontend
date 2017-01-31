@@ -1,7 +1,30 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-11">
     <h4 class="">{{folder}}</h4>
+  </div>
+  <div class="col-md-1">
+    <i class="fa fa-times grey fa-1" (click)="openConfirm($event)"></i>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <p>Descripción descripción descripción descripción descripción descripción descripción descripción</p>
   </div>
 </div>
 <hr>
+
+<div class="modal fade" id="caca" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputPassword1">¿Está seguro que desea eliminar todo el contenido?</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-error" (click)="delete($event)">Aceptar</button>
+        <button type="button" class="btn btn-primary" (click)="closeConfirm($event)">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

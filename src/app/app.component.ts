@@ -14,10 +14,11 @@ export class AppComponent {
   constructor(){
     this.$folder;
     this.breadcrumb = [];
+    this.breadcrumb.push('root');
   }
 
   folderChange(folder){
+    if(this.$folder && this.$folder.name !== folder.name) this.breadcrumb.push(folder.name);
     this.$folder = folder;
-    this.breadcrumb.push(folder.name);
   }
 }

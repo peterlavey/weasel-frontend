@@ -9,10 +9,10 @@
       <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)"></app-breadcrumb>
     </div>
     <div class="col-md-4">
-      <div class="row">
-        <div class="col">
+      <div class="row" [hidden]="$isStarted">
+        <!--<div class="col">
           <i class="fa fa-pencil-square-o fa-2x text-white" aria-hidden="true" data-toggle="modal" data-target="#restModal"></i>
-        </div>
+        </div>-->
         <div class="col">
           <i class="fa fa-folder-o fa-2x text-white" aria-hidden="true" data-toggle="modal" data-target="#folderModal"></i>
         </div>
@@ -24,9 +24,25 @@
           <samp class="text-white" id="port"></samp>
         </div>
       </div>
+      <div class="row" [hidden]="!$isStarted">
+        <!--<div class="col">
+          <i class="fa fa-pencil-square-o fa-2x text-white" aria-hidden="true" data-toggle="modal" data-target="#restModal"></i>
+        </div>-->
+        <div class="col">
+          <i class="fa fa-folder-o fa-2x text-muted" aria-hidden="true"></i>
+        </div>
+        <div class="col">
+          <i class="fa fa-plus fa-2x text-muted" aria-hidden="true"></i>
+        </div>
+        <div class="col">
+          <i class="fa fa-cog fa-2x text-muted" aria-hidden="true"></i>
+          <samp class="text-white" id="port"></samp>
+        </div>
+      </div>
     </div>
     <div class="col-md-2" align="right">
-      <app-switch [folder]="folder"></app-switch>
+      <app-switch [folder]="folder" (isStarted)="$isStarted=$event"></app-switch>
+      <h1 class="text-white"></h1>
     </div>
   </div>
 </nav>

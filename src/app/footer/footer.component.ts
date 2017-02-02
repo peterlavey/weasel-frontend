@@ -10,8 +10,10 @@ export class FooterComponent implements OnInit {
   @Input() directories: string[];
   @Input() folder: Folder;
   @Output() folderChange= new EventEmitter<Folder>();
-
-  constructor() { }
+  public $isStarted: boolean;
+  constructor() {
+     this.$isStarted = false;
+  }
 
   ngOnInit() { }
 

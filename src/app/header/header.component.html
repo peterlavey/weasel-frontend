@@ -1,5 +1,5 @@
 <header>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <div class="row">
       <div class="col">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +11,18 @@
 
     <div class="col" align="right">
       <i class="fa fa-bars fa-2x text-white" (click)="openModal()"></i>
+    </div>
+  </nav>
+  <nav class="navbar navbar-toggleable-md submenu bg-faded" *ngIf="folder">
+    <div class="col-md-10">
+      <h4 class="text-muted">{{folder.name}}</h4>
+    </div>
+
+    <div class="col-md-1" align="right">
+      <a href="#" (click)="export()">Export</a>
+    </div>
+    <div class="col-md-1" align="right">
+      <a href="#">Import</a>
     </div>
   </nav>
 </header>

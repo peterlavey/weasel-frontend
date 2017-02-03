@@ -22,7 +22,25 @@
       <a href="#" (click)="export()">Export</a>
     </div>
     <div class="col-md-1" align="right">
-      <a href="#">Import</a>
+      <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
+      <a href="#" (click)="searchFile()">Import</a>
     </div>
   </nav>
 </header>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmIncludeRests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="exampleInputPassword1">¿Desea incluir los rest de esta importación a la lista?</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="import(true)">Sí</button>
+        <button type="button" class="btn btn-default" (click)="import(false)">No</button>
+      </div>
+    </div>
+  </div>
+</div>

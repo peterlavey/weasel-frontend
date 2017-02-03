@@ -38,7 +38,8 @@ export class AddComponent implements OnInit {
 
   createFolder(): void{
     this._processService.createFolder(this.folder.name, this._newFolder).subscribe(res =>{
-      this.folder.folders.push(this._newFolder.name);
+      this.folder = res;
+      console.log(`ADD CREATE FOLDER ${this.folder.folders}`);
       this.folderChange.emit(this.folder);
 
       this.clean();

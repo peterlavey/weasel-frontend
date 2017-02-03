@@ -1,4 +1,4 @@
-<app-header [folder]="$folder"></app-header>
+<app-header [folder]="$folder" (folderChange)="$folder=$event"></app-header>
 <body class="p-5">
   <!--<router-outlet></router-outlet>-->
   <app-list [folder]="$folder" (folderChange)="folderChange($event)"></app-list>

@@ -1,6 +1,6 @@
 export interface Rest {
   name:string;
   path:string;
-  //type:string;
+  status:number;
   response:{};
 }

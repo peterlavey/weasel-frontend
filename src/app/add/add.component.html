@@ -35,12 +35,19 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Name</label>
-          <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_newRest.name">
+          <input class="form-control" placeholder="My rest" [(ngModel)]="_newRest.name">
         </div>
 
         <div class="form-group">
-          <label for="exampleInputEmail1">Path</label>
-          <input class="form-control" placeholder="Your name rest..." [(ngModel)]="_newRest.path">
+          <label for="exampleInputEmail1">Path (without domain)</label>
+          <input class="form-control" placeholder="/list/users" [(ngModel)]="_newRest.path">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputEmail1">Status</label>
+          <select class="form-control" [(ngModel)]="_newRest.status">
+            <option *ngFor="let status of statusList.LIST_STATUS" [ngValue]="status.code">{{status.code}} - {{status.name}}</option>
+          </select>
         </div>
 
         <div class="form-group">

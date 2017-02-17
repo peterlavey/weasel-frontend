@@ -4,6 +4,7 @@ import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
 import { Folder } from '../folder';
 import { Options } from '../options';
+import { ConstantsService } from '../constants.service';
 
 declare var $: any;
 
@@ -13,10 +14,13 @@ declare var $: any;
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
+  public statusList: any;
+
   private _newRest:any;
   private _newFolder:any;
   private _options: any;
   public port: string;
+
 
   @Input() folder: Folder;
   @Output() folderChange = new EventEmitter<Folder>();
@@ -29,7 +33,7 @@ export class AddComponent implements OnInit {
     this._options = {
       port:''
     };
-
+    this.statusList = new ConstantsService();
     this.getOptions();
   }
 
@@ -100,6 +104,7 @@ export class AddComponent implements OnInit {
     this._newRest={
       name:'',
       path:'',
+      status: 200,
       response:''
     };
   }

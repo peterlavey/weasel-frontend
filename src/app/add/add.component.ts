@@ -62,7 +62,6 @@ export class AddComponent implements OnInit {
     }else{
       this._toastr.error('JSON invalido');
     }
-
   }
 
   validateJSON(){

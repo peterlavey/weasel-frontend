@@ -47,6 +47,11 @@ export class ProcessService {
     return this._http.post(`${this.host}/weasel-api/delete/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
+  editRest(name: string, rest: Rest): Observable<any>{
+    let body = JSON.stringify(rest);
+    return this._http.post(`${this.host}/weasel-api/edit/rest/${name}`, body, this._options).map((res: Response) => res.json());
+  }
+
   removeRest(name: string, rest: Rest): Observable<any>{
     let body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/remove/rest/${name}`, body, this._options).map((res: Response) => res.json());

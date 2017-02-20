@@ -1,18 +1,18 @@
 
 <!-- Create Folder -->
-<div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="folderModal" tabindex="-1" role="dialog" aria-labelledby="folderModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Folder</h5>
+        <h5 class="modal-title">Create Folder</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="exampleInputPassword1">Name</label>
-          <input type="text" value="" class="form-control" placeholder="My folder" [(ngModel)]="_newFolder.name">
+          <label for="name">Name</label>
+          <input  type="text" value="" class="form-control" placeholder="My folder" [(ngModel)]="_newFolder.name">
         </div>
       </div>
       <div class="modal-footer">
@@ -23,35 +23,35 @@
 </div>
 
 <!-- Create Rest -->
-<div class="modal fade" id="restModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="restModal" tabindex="-1" role="dialog" aria-labelledby="restModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create Rest</h5>
+        <h5 class="modal-title">Create Rest</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="exampleInputEmail1">Name</label>
+          <label for="name">Name</label>
           <input class="form-control" placeholder="My rest" [(ngModel)]="_newRest.name">
         </div>
 
         <div class="form-group">
-          <label for="exampleInputEmail1">Path (without domain)</label>
+          <label for="path">Path (without domain)</label>
           <input class="form-control" placeholder="/list/users" [(ngModel)]="_newRest.path">
         </div>
 
         <div class="form-group">
-          <label for="exampleInputEmail1">Status</label>
+          <label for="status">Status</label>
           <select class="form-control" [(ngModel)]="_newRest.status">
             <option *ngFor="let status of statusList.LIST_STATUS" [ngValue]="status.code">{{status.code}} - {{status.name}}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="exampleSelect2">Response (deshabilitado)</label>
+          <label for="response">Response (deshabilitado)</label>
           <textarea class="form-control" rows="10" placeholder="{json:'example'}" [(ngModel)]="_newRest.response"></textarea>
         </div>
       </div>
@@ -63,18 +63,18 @@
 </div>
 
 <!-- Set Options -->
-<div class="modal fade" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="optionsModal" tabindex="-1" role="dialog" aria-labelledby="optionsModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Options</h5>
+        <h5 class="modal-title">Options</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="exampleInputPassword1">Port</label>
+          <label for="port">Port</label>
           <input type="text" value="" class="form-control" placeholder="7011" [(ngModel)]="_options.port">
         </div>
       </div>

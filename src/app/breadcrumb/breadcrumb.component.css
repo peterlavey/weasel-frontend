@@ -20,6 +20,6 @@
   color: #a2a2a2;
 }
 
-.breadcrumb ol li{
+.breadcrumb ol li:not(last-child){
   cursor: pointer;
 }

@@ -13,9 +13,13 @@ export class RestComponent implements OnInit {
   @Input() folder: Folder;
   @Output() folderChange = new EventEmitter<Folder>();
 
+  public badgeState: string;
+
   constructor(private _processService: ProcessService) { }
 
   ngOnInit() {
+    let firstDigit = this.rest.status.toString().charAt(0);
+    this.badgeState = firstDigit === '2' ? 'success' : 'danger';
   }
 
   removeRest(): void{

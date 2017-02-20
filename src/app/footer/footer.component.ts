@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Folder } from '../folder';
 
+declare var $: any;
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -20,5 +22,4 @@ export class FooterComponent implements OnInit {
   emitParent(folder: Folder){
     this.folderChange.emit(folder);
   }
-
 }

@@ -1,7 +1,8 @@
 <div class="">
   <div class="row">
     <div class="col-md-11">
-      <h4 class="">{{rest.name}}</h4>
+      <span class="badge badge-pill badge-{{badgeState}}">{{rest.status}}</span>
+      <h5>&nbsp;{{rest.name}}</h5>
     </div>
     <div class="col-md-1">
       <i class="fa fa-times grey fa-1" (click)="removeRest()"></i>
@@ -9,7 +10,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <p class="">{{rest.path}}</p>
+      <p>{{rest.path}}</p>
     </div>
   </div>
 </div>

@@ -1,14 +1,13 @@
 
 <div class="container mx-auto" *ngIf="folder">
-
   <div class="" *ngIf="folder.folders.length">
-    <div class="test" *ngFor="let folderChild of folder.folders">
+    <div *ngFor="let folderChild of folder.folders">
       <app-folder [folder]="folderChild" [folderParent]="folder" (folderChange)="folder=$event" (click)="getFolder(folderChild)"></app-folder>
     </div>
   </div>
 
   <div class="" *ngIf="folder.content.length">
-    <div class="test" *ngFor="let rest of folder.content">
+    <div *ngFor="let rest of folder.content">
       <app-rest [folder]="folder" [rest]="rest" (folderChange)="emitParent($event)"></app-rest>
     </div>
   </div>

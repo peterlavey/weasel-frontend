@@ -9,8 +9,10 @@
       </div>
     </div>
 
-    <div class="col" align="right">
-      <i class="fa fa-bars fa-2x text-white" (click)="openModal()"></i>
+    <div class="col tooltip-ws" align="right">
+      <i class="fa fa-bars fa-2x text-white" (click)="openModal()">
+        <span class="tooltiptext">Search services</span>
+      </i>
     </div>
   </nav>
   <nav class="navbar navbar-toggleable-md submenu bg-faded" *ngIf="folder">

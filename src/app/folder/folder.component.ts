@@ -10,18 +10,27 @@ declare var $: any;
   styleUrls: ['./folder.component.css']
 })
 export class FolderComponent implements OnInit {
-  @Input() folder: Folder;
+  @Input() folder: any;
   @Input() folderParent: Folder;
   @Output() folderChange = new EventEmitter<Folder>();
 
   private buildRequestFolder: any;
+  private _newFolder:any;
 
   constructor(private _processService: ProcessService) { }
 
   ngOnInit() {
+    this.cleanFolderEdit();
     this.buildRequestFolder = {
       name: this.folder
     }
+  }
+
+  getFolder(): void {
+    this._processService.getFolder(this.folder).subscribe(data => {
+      this.folder = data;
+      this.folderChange.emit(this.folder);
+    });
   }
 
   openConfirm(event){
@@ -34,11 +43,34 @@ export class FolderComponent implements OnInit {
     event.stopPropagation();
   }
 
+  openEditModal(event){
+    $(`#editFolderModal-${this.folder}`).modal('show');
+    event.stopPropagation();
+  }
+
   delete(event): void{
     this.closeConfirm(event);
     this._processService.deleteFolder(this.folderParent.name, this.buildRequestFolder).subscribe(res=> {
       this.folderParent = res;
       this.folderChange.emit(this.folderParent);
     });
+  }
+
+  editFolder(): void{
+    this._processService.editFolder(this.folderParent.name, this._newFolder, this.folder).subscribe(res =>{
+      this.folderParent = res;
+      this.folderChange.emit(this.folderParent);
+
+      //this.cleanFolderEdit();
+    });
+  }
+
+  cleanFolderEdit(){
+    this._newFolder={
+      id:0,
+      name:this.folder,
+      content:[],
+      folders:[]
+    };
   }
 }

@@ -1,12 +1,36 @@
 <div class="row">
-  <div class="col-md-11">
+  <div class="col-md-10" (click)="getFolder()">
     <h2 class="">{{folder}}</h2>
   </div>
-  <div class="col-md-1">
-    <i class="fa fa-trash grey fa-1" (click)="openConfirm($event)"></i>
+  <div class="col-md-2" align="right">
+    <i class="fa fa-pencil col-md-4 grey fa-1" (click)="openEditModal($event)"></i>
+    <i class="fa fa-trash col-md-4 grey fa-1" (click)="openConfirm($event)"></i>
   </div>
 </div>
 <hr>
+
+<!-- Edit Folder -->
+<div class="modal fade" id="editFolderModal-{{folder}}" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Folder</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input  type="text" value="" class="form-control" placeholder="My folder" [(ngModel)]="_newFolder.name">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="editFolder()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Modal de confirmación -->
 <div class="modal fade" id="confirmDeleteFolder-{{folder}}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteFolder" aria-hidden="true">

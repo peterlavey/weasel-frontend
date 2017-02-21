@@ -14,13 +14,13 @@ export class ProcessService {
 
   constructor(private _http:  Http) { }
 
-  getFolder(name:string): Observable<Folder>{
-    return this._http.get(`${this.host}/weasel-api/list/folders/${name}`, this._options).map((res: Response) => res.json());
-  }
-
   import(name: string, addRest: string, folder: any){
     let body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/import/folder/${name}/${addRest}`, body, this._options).map((res: Response) => res.json());
+  }
+
+  getFolder(name:string): Observable<Folder>{
+    return this._http.get(`${this.host}/weasel-api/list/folders/${name}`, this._options).map((res: Response) => res.json());
   }
 
   createFolder(name: string, folder: any){
@@ -31,6 +31,11 @@ export class ProcessService {
   deleteFolder(name:string, folder: Folder): Observable<Folder>{
     let body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/delete/folder/${name}`, body, this._options).map((res: Response) => res.json());
+  }
+
+  editFolder(name: string, folder: any, oldName: string){
+    let body = JSON.stringify(folder);
+    return this._http.post(`${this.host}/weasel-api/edit/folder/${name}/${oldName}`, body, this._options).map((res: Response) => res.json());
   }
 
   getRests(): Observable<Rest[]>{

@@ -5,7 +5,7 @@
       <h5>&nbsp;{{rest.name}}</h5>
     </div>
     <div class="col-md-2">
-      <i class="fa fa-eye grey fa-1 col-md-4"></i>
+      <i class="fa fa-eye fa-1 col-md-4" (click)="openJson()" [ngClass]="{'grey' : !isOpen, 'text-info' : isOpen}"></i>
       <i class="fa fa-pencil grey fa-1 col-md-4" (click)="openEditModal()"></i>
       <i class="fa fa-times grey fa-1 col-md-3" (click)="removeRest()"></i>
     </div>
@@ -16,6 +16,7 @@
     </div>
   </div>
 </div>
+<app-json-formatter [hidden]="!isOpen" [json]="rest.response" [isOpen]="true"></app-json-formatter>
 <hr>
 
 <!-- Create Rest -->

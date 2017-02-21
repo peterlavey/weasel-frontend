@@ -1,0 +1,10 @@
+<ul class="rounded" [hidden]="!isOpen">
+  <li id="li-{{obj.attribute}}" *ngFor="let obj of formattedJson" (click)="open(obj.attribute, obj, $event)" [style.cursor]="obj.cursor">
+    <span class="toggler" *ngIf="obj.haveContain"></span>
+    <p class="attribute">{{obj.attribute}} :</p>
+    <p class="{{obj.color}}">{{obj.type ? obj.type : obj.value}}</p>
+    <div class="" *ngIf="obj.haveContain">
+      <app-json-formatter [json]="obj.value" [isOpen]="obj.isOpen"></app-json-formatter>
+    </div>
+  </li>
+</ul>

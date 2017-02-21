@@ -19,9 +19,11 @@ export class RestComponent implements OnInit {
   public badgeState: string;
   public statusList: any;
   private _newRest:any;
+  public isOpen: boolean;
 
   constructor(private _processService: ProcessService) {
     this.statusList = new ConstantsService();
+    this.isOpen = false;
   }
 
   ngOnInit() {
@@ -71,5 +73,13 @@ export class RestComponent implements OnInit {
       status: this.rest.status,
       response:JSON.stringify(this.rest.response, null, "\t")
     };
+  }
+
+  openJson(){
+    if(this.isOpen){
+      this.isOpen = false;
+    }else{
+      this.isOpen = true;
+    }
   }
 }

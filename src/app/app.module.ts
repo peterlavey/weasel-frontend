@@ -19,6 +19,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { SearchComponent } from './search/search.component';
 import { BynamePipe } from './byname.pipe';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { JsonFormatterComponent } from './json-formatter/json-formatter.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     BreadcrumbComponent,
     SwitchComponent,
     SearchComponent,
-    BynamePipe
+    BynamePipe,
+    JsonFormatterComponent
   ],
   imports: [
     BrowserModule,

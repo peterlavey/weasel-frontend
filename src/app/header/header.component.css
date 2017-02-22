@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Queen';
+  src: url('../assets/queen-of-heaven-regular.ttf');
+}
+
+.logo {
+  font-family: 'Queen';
+  font-size: xx-large;
+  padding: inherit;
+}
+
 .submenu{
   height: 38px;
   padding-bottom: 0px;

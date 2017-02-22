@@ -10,7 +10,7 @@
 <hr>
 
 <!-- Edit Folder -->
-<div class="modal fade" id="editFolderModal-{{folder}}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="editFolderModal-{{deleteSpaces(folder)}}" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -33,7 +33,7 @@
 </div>
 
 <!-- Modal de confirmación -->
-<div class="modal fade" id="confirmDeleteFolder-{{folder}}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteFolder" aria-hidden="true">
+<div class="modal fade" id="confirmDeleteFolder-{{deleteSpaces(folder)}}" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteFolder" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">

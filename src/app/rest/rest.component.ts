@@ -40,7 +40,7 @@ export class RestComponent implements OnInit {
   }
 
   openEditModal(){
-    $(`#editRestModal-${this.rest.name}`).modal('show');
+    $(`#editRestModal-${this.deleteSpaces(this.rest.name)}`).modal('show');
   }
 
   editRest(){
@@ -81,5 +81,9 @@ export class RestComponent implements OnInit {
     }else{
       this.isOpen = true;
     }
+  }
+
+  deleteSpaces(str: string):string{
+    return str.replace(/ /g,'');
   }
 }

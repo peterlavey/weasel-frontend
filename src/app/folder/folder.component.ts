@@ -34,17 +34,17 @@ export class FolderComponent implements OnInit {
   }
 
   openConfirm(event){
-    $(`#confirmDeleteFolder-${this.folder}`).modal('show');
+    $(`#confirmDeleteFolder-${this.deleteSpaces(this.folder)}`).modal('show');
     event.stopPropagation();
   }
 
   closeConfirm(event){
-    $(`#confirmDeleteFolder-${this.folder}`).modal('hide');
+    $(`#confirmDeleteFolder-${this.deleteSpaces(this.folder)}`).modal('hide');
     event.stopPropagation();
   }
 
   openEditModal(event){
-    $(`#editFolderModal-${this.folder}`).modal('show');
+    $(`#editFolderModal-${this.deleteSpaces(this.folder)}`).modal('show');
     event.stopPropagation();
   }
 
@@ -72,5 +72,9 @@ export class FolderComponent implements OnInit {
       content:[],
       folders:[]
     };
+  }
+
+  deleteSpaces(str: string):string{
+    return str.replace(/ /g,'');
   }
 }

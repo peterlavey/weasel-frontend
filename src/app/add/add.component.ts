@@ -53,11 +53,15 @@ export class AddComponent implements OnInit {
   createRest(){
     if(this.validateJSON()){
       this._processService.addRest(this.folder.name, this._newRest).subscribe(res  => {
-        this.folder.content.push(Object.assign({}, this._newRest));
-        this.folderChange.emit(this.folder);
-        this.restChange.emit();
+        if(res.error){
+          this._toastr.error(res.error);
+        }else{
+          this.folder.content.push(Object.assign({}, this._newRest));
+          this.folderChange.emit(this.folder);
+          this.restChange.emit();
 
-        this.clean();
+          this.clean();
+        }
       });
     }else{
       this._toastr.error('JSON invalido');

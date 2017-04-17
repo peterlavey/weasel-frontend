@@ -44,7 +44,7 @@ export class ProcessService {
 
   addRest(name: string, rest: Rest): Observable<any>{
     let body = JSON.stringify(rest);
-    return this._http.post(`${this.host}/weasel-api/add/rest/${name}`, body, this._options);
+    return this._http.post(`${this.host}/weasel-api/add/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   deleteRest(name: string, rest: Rest): Observable<any>{

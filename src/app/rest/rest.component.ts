@@ -20,9 +20,11 @@ export class RestComponent implements OnInit {
   public statusList: any;
   private _newRest:any;
   public isOpen: boolean;
+  public configCodeMirror: any;
 
   constructor(private _processService: ProcessService) {
     this.statusList = new ConstantsService();
+    this.configCodeMirror = {'mode':'javascript', 'lineNumbers': true, 'theme':'dracula'};
     this.isOpen = false;
   }
 

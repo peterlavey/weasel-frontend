@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-
 import { Folder } from './folder';
+
+declare var cheet: any;
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,11 @@ export class AppComponent {
     this.$folder;
     this.breadcrumb = [];
     this.breadcrumb.push('root');
+
+    //Konami code
+    cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
+      alert('Comming soon...');
+    });
   }
 
   folderChange(folder){

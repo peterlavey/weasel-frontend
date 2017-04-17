@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Queen';
-  src: url('../assets/queen-of-heaven-regular.ttf');
+  src: url('../../assets/queen-of-heaven-regular.ttf');
 }
 
 .logo {

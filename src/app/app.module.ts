@@ -20,6 +20,8 @@ import { SearchComponent } from './search/search.component';
 import { BynamePipe } from './byname.pipe';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { JsonFormatterComponent } from './json-formatter/json-formatter.component';
+import { CodemirrorModule } from 'ng2-codemirror';
+import { JsonViewerComponent } from './json-viewer/json-viewer.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -39,9 +41,11 @@ const appRoutes: Routes = [
     SwitchComponent,
     SearchComponent,
     BynamePipe,
-    JsonFormatterComponent
+    JsonFormatterComponent,
+    JsonViewerComponent
   ],
   imports: [
+    CodemirrorModule,
     BrowserModule,
     FormsModule,
     HttpModule,

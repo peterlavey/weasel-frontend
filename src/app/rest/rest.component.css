@@ -10,3 +10,15 @@ h5{
 .grey{
   color: #d6d6d6;
 }
+
+.fa-eye:hover{
+  color: #5bc0de;
+}
+
+.fa-pencil:hover{
+  color: #5bc0de;
+}
+
+.fa-times:hover{
+  color: #5bc0de;
+}

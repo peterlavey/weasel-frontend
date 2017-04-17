@@ -21,7 +21,7 @@
 
 <!-- Edit Rest -->
 <div class="modal fade" id="editRestModal-{{deleteSpaces(rest.name)}}" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit Rest</h5>
@@ -29,27 +29,32 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input class="form-control" placeholder="My rest" [(ngModel)]="_newRest.name">
-        </div>
+      <div class="row modal-body">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" placeholder="My rest" [(ngModel)]="_newRest.name">
+          </div>
 
-        <div class="form-group">
-          <label for="path">Path (without domain)</label>
-          <input class="form-control" placeholder="/list/users" [(ngModel)]="_newRest.path">
-        </div>
+          <div class="form-group">
+            <label for="path">Path (without domain)</label>
+            <input class="form-control" placeholder="/list/users" [(ngModel)]="_newRest.path">
+          </div>
 
-        <div class="form-group">
-          <label for="status">Status</label>
-          <select class="form-control" [(ngModel)]="_newRest.status">
-            <option *ngFor="let status of statusList.LIST_STATUS" [ngValue]="status.code">{{status.code}} - {{status.name}}</option>
-          </select>
+          <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" [(ngModel)]="_newRest.status">
+              <option *ngFor="let status of statusList.LIST_STATUS" [ngValue]="status.code">{{status.code}} - {{status.name}}</option>
+            </select>
+          </div>
         </div>
-
-        <div class="form-group">
-          <label for="response">Response (deshabilitado)</label>
-          <textarea class="form-control" rows="10" placeholder="{json:'example'}" [(ngModel)]="_newRest.response"></textarea>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="response">Response</label>
+            <app-json-viewer [(json)]="_newRest.response"></app-json-viewer>
+            <!--<codemirror [(ngModel)]="_newRest.response" [config]="configCodeMirror"></codemirror>
+            <textarea class="form-control" rows="25" placeholder="{json:'example'}" [(ngModel)]="_newRest.response"></textarea>-->
+          </div>
         </div>
       </div>
       <div class="modal-footer">

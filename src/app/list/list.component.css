@@ -1,1 +1,9 @@
+.folder{
+  cursor: pointer;
+  color: #909090;
+}
 
+.folder:hover{
+  font-size: x-large;
+  color: #000;
+}

@@ -40,6 +40,23 @@ export class AddComponent implements OnInit {
   ngOnInit() {
   }
 
+  enterKey(event): void{
+    if(event.keyCode == 13){
+      $(`#${event.currentTarget.id}`).modal('hide');
+      switch (event.currentTarget.id){
+        case 'folderModal':
+          this.createFolder();
+        break;
+        case 'restModal':
+          this.createRest();
+        break;
+        case 'optionsModal':
+          this.saveOptions();
+        break;
+      }
+    }
+  }
+
   createFolder(): void{
     this._processService.createFolder(this.folder.name, this._newFolder).subscribe(res =>{
       this.folder = res;

@@ -45,6 +45,13 @@ export class RestComponent implements OnInit {
     $(`#editRestModal-${this.deleteSpaces(this.rest.name)}`).modal('show');
   }
 
+  enterKeyEdit(event): void{
+    if(event.keyCode == 13){
+      $(`#${event.currentTarget.id}`).modal('hide');
+      this.editRest();
+    }
+  }
+
   editRest(){
     if(this.validateJSON()){
       this._processService.editRest(this.folder.name, this.rest).subscribe(res  => {

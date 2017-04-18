@@ -3,15 +3,18 @@
 
 <!-- Off canvas del buscador -->
 <div class="offcanvas">
-  <i class="fa fa-times fa-2x text-white" (click)="dismiss()"></i>
-  <div class="row mb-4">
-    <div class="col">
-      <input class="form-control col-md-10" type="text" placeholder="Search" [(ngModel)]="nameFilter">
+  <div class="">
+    <i class="fa fa-times fa-2x text-white" (click)="dismiss()"></i>
+    <div class="row mb-4">
+      <div class="col">
+        <input class="form-control col-md-10" type="text" placeholder="Search" [(ngModel)]="nameFilter">
+      </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col">
-      <div *ngFor="let rest of (rests | byname: nameFilter)">
+      <div *ngFor="let rest of (rests | byname: nameFilter)" class="rests">
 
         <div class="" (click)="validateToAdd(rest)">
           <div class="row">

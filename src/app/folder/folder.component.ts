@@ -56,6 +56,13 @@ export class FolderComponent implements OnInit {
     });
   }
 
+  enterKeyEdit(event): void{
+    if(event.keyCode == 13){
+      $(`#${event.currentTarget.id}`).modal('hide');
+      this.editFolder();
+    }
+  }
+
   editFolder(): void{
     this._processService.editFolder(this.folderParent.name, this._newFolder, this.folder).subscribe(res =>{
       this.folderParent = res;

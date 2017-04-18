@@ -20,7 +20,7 @@
 <hr>
 
 <!-- Edit Rest -->
-<div class="modal fade" id="editRestModal-{{deleteSpaces(rest.name)}}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="editRestModal-{{deleteSpaces(rest.name)}}" tabindex="-1" role="dialog" aria-hidden="true" (keydown)="enterKeyEdit($event)">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -52,8 +52,6 @@
           <div class="form-group">
             <label for="response">Response</label>
             <app-json-viewer [(json)]="_newRest.response"></app-json-viewer>
-            <!--<codemirror [(ngModel)]="_newRest.response" [config]="configCodeMirror"></codemirror>
-            <textarea class="form-control" rows="25" placeholder="{json:'example'}" [(ngModel)]="_newRest.response"></textarea>-->
           </div>
         </div>
       </div>

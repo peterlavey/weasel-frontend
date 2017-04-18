@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Folder } from './folder';
 
 declare var cheet: any;
@@ -12,14 +13,15 @@ export class AppComponent {
   $folder: Folder;
   breadcrumb: string[];
 
-  constructor(){
+  constructor(private _toastr: ToastsManager, private _vcr: ViewContainerRef){
     this.$folder;
     this.breadcrumb = [];
     this.breadcrumb.push('root');
-
+    this._toastr.setRootViewContainerRef(_vcr);
     //Konami code
-    cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
-      alert('Comming soon...');
+    cheet('↑ ↑ ↓ ↓ ← → ← → b a', ()=>{
+      document.querySelector('img').style.display = 'inline';
+      this._toastr.info('Konami code! Logro desbloqueado');
     });
   }
 

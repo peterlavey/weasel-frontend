@@ -26,8 +26,8 @@ export class FolderComponent implements OnInit {
     }
   }
 
-  getFolder(): void {
-    this._processService.getFolder(this.folder).subscribe(data => {
+  getFolderByName(): void {
+    this._processService.getFolderByName(this.folder).subscribe(data => {
       this.folder = data;
       this.folderChange.emit(this.folder);
     });
@@ -51,6 +51,7 @@ export class FolderComponent implements OnInit {
   delete(event): void{
     this.closeConfirm(event);
     this._processService.deleteFolder(this.folderParent.name, this.buildRequestFolder).subscribe(res=> {
+      $('#getFolders').click();
       this.folderParent = res;
       this.folderChange.emit(this.folderParent);
     });

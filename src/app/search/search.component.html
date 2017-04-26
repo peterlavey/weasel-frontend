@@ -3,20 +3,23 @@
 
 <!-- Off canvas del buscador -->
 <div class="offcanvas">
+
   <div class="">
     <i class="fa fa-times fa-2x text-white" (click)="dismiss()"></i>
     <div class="row mb-4">
       <div class="col">
-        <input class="form-control col-md-10" type="text" placeholder="Search" [(ngModel)]="nameFilter">
+        <button type="button" class="col-md-2 btn btn-outline-primary pointer" (click)="changeFilterSearch()" [hidden]="isFilterRest">REST</button>
+        <button type="button" class="col-md-2 btn btn-outline-primary pointer" (click)="changeFilterSearch()" [hidden]="!isFilterRest">FOLDER</button>
+        <input id="search" class="form-control col-md-8" type="text" placeholder="Search" [(ngModel)]="nameFilter">
       </div>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" [hidden]="isFilterRest">
     <div class="col">
-      <div *ngFor="let rest of (rests | byname: nameFilter)" class="rests">
+      <div *ngFor="let rest of (rests | byname: nameFilter)">
 
-        <div class="" (click)="validateToAdd(rest)">
+        <div class="" (click)="validateToAdd(rest)" class="rests">
           <div class="row">
             <div class="col-md-10">
               <h4 class="">{{rest.name}}</h4>
@@ -31,9 +34,51 @@
             </div>
           </div>
         </div>
-
+        <hr>
       </div>
-      <hr>
+    </div>
+  </div>
+
+  <div class="row" [hidden]="!isFilterRest">
+    <div class="col">
+      <div *ngFor="let folder of (folders | byname: nameFilter)" (click)="open(folder.name, folder, $event)">
+
+        <div class="rests">
+          <div class="row">
+            <div class="col-md-10">
+              <h4 id="folder-{{deleteSpaces(folder.name)}}">
+                <span class="toggler"></span> {{folder.name}}
+              </h4>
+            </div>
+            <div class="col-md-2">
+              <i><small class="text-info" (click)="addGroup(folder, $event)">Add</small></i>
+            </div>
+          </div>
+          <!-- RESTS -->
+          <div id="rest-of-folder-{{deleteSpaces(folder.name)}}" class="rest-of-folder">
+            <div *ngFor="let rest of (folder.content | byname: nameFilter)" >
+              <div class="" (click)="validateToAdd(rest)">
+                <div class="row">
+                  <div class="col-md-10">
+                    <h4 class="">{{rest.name}}</h4>
+                  </div>
+                  <div class="col-md-2">
+                    <i><small class="text-danger" (click)="openConfirm(rest, $event)">Delete</small></i>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <p class="">{{rest.path}}</p>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <!-- RESTS -->
+        </div>
+        <hr>
+      </div>
     </div>
   </div>
 </div>
@@ -57,3 +102,4 @@
 
 <!-- ARREGLAR ESTA COCHINADA!!!!! -->
 <button id="getRests" type="button" name="button" [hidden]="true" (click)="getRests()"></button>
+<button id="getFolders" type="button" name="button" [hidden]="true" (click)="getFolders()"></button>

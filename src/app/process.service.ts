@@ -19,13 +19,26 @@ export class ProcessService {
     return this._http.post(`${this.host}/weasel-api/import/folder/${name}/${addRest}`, body, this._options).map((res: Response) => res.json());
   }
 
-  getFolder(name:string): Observable<Folder>{
+  getAddGroup(directory: string, folder: any){
+    let body = JSON.stringify(folder);
+    return this._http.post(`${this.host}/weasel-api/add/group/${directory}`, body, this._options).map((res: Response) => res.json());
+  }
+
+  getFolders(): Observable<Folder[]>{
+    return this._http.get(`${this.host}/weasel-api/list/folders`, this._options).map((res: Response) => res.json());
+  }
+
+  getFolderByName(name:string): Observable<Folder>{
     return this._http.get(`${this.host}/weasel-api/list/folders/${name}`, this._options).map((res: Response) => res.json());
   }
 
   createFolder(name: string, folder: any){
     let body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/add/folder/${name}`, body, this._options).map((res: Response) => res.json());
+  }
+
+  removeGroup(nameDirectory:string, nameGroup: string): Observable<Folder>{
+    return this._http.get(`${this.host}/weasel-api/remove/group/${nameDirectory}/${nameGroup}`, this._options).map((res: Response) => res.json());
   }
 
   deleteFolder(name:string, folder: Folder): Observable<Folder>{
@@ -80,7 +93,7 @@ export class ProcessService {
   }
 
   stopServices(): Observable<any>{
-    return this._http.get(`${this.host}/weasel-api/kill`, this._options).map((res: Response) => console.log(res));
+    return this._http.get(`${this.host}/weasel-api/kill`, this._options).map((res: Response) => res.json());
   }
 
   private handleError(error: any): Promise<any> {

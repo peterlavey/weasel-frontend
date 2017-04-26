@@ -22,6 +22,7 @@ import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { JsonFormatterComponent } from './json-formatter/json-formatter.component';
 import { CodemirrorModule } from 'ng2-codemirror';
 import { JsonViewerComponent } from './json-viewer/json-viewer.component';
+import { GroupComponent } from './group/group.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     SearchComponent,
     BynamePipe,
     JsonFormatterComponent,
-    JsonViewerComponent
+    JsonViewerComponent,
+    GroupComponent
   ],
   imports: [
     CodemirrorModule,

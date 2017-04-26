@@ -1,17 +1,17 @@
-<nav class="navbar fixed-bottom navbar-inverse bg-inverse">
+<nav class="navbar fixed-bottom navbar-inverse bg-inverse" *ngIf="folder">
   <div class="row">
     <div class="col-md-1 pt-2">
       <a class="navbar-brand tooltip-ws" href="#">
-        <img src="../assets/weasel-logo-inverse.png" width="50" height="30" class="d-inline-block align-top" alt="">
-        <span class="tooltiptext">Psst! try with konami code</span>
+        <img src="../assets/weasel-logo-inverse.png" title="Psst! try with konami code" width="50" height="30" class="d-inline-block align-top" alt="">
       </a>
     </div>
     <div class="col-md-6 pt-3">
-      <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)"></app-breadcrumb>
+      <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)" [hidden]="$isStarted"></app-breadcrumb>
+      <span [hidden]="!$isStarted" class="text-info">Para navegar debe bajar los servicios</span>
     </div>
     <div class="col-md-3 pt-2">
       <div class="row">
-        <div class="col">
+        <div class="col" *ngIf="!folder.content.length">
           <i class="fa fa-folder-o fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#folderModal" [hidden]="$isStarted">
             <span class="tooltiptext">New folder</span>
           </i>

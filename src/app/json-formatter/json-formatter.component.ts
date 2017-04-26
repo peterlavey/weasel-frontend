@@ -8,16 +8,9 @@ declare var $:any;
   styleUrls: ['./json-formatter.component.css']
 })
 export class JsonFormatterComponent implements OnInit {
-  /*public json = {
-    "name":"juan",
-    "age": 23,
-    "isGay":true,
-    "items":["caca", "tata"]
-  };*/
   @Input() json:any;
   @Input() isOpen:boolean;
   public formattedJson:any;
-  /*public template = `<div *ngFor="let a of obj.value">{{a}}</div>`;*/
 
   constructor() {
 

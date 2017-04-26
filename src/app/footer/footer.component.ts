@@ -20,6 +20,11 @@ export class FooterComponent implements OnInit {
   ngOnInit() { }
 
   emitParent(folder: Folder){
+    console.log(`este es el folder ${this.folder}`)
     this.folderChange.emit(folder);
+  }
+
+  validateProperty(obj:any, property:string){
+    return obj.hasOwnProperty(property);//obj.hasOwnProperty(property);
   }
 }

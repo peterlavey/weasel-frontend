@@ -1,8 +1,48 @@
+#search{
+  display: inline;
+}
+
+.rest-of-folder{
+  display: none;
+}
+
+.rest-of-folder.open-toggler{
+  display: block;
+  background-color: #4a4a4a;
+}
+
+.rest-of-folder.open-toggler > div{
+  padding: 1%;
+}
+
+.toggler {
+  color: white;
+  line-height: 1.2rem;
+  font-size: 0.7rem;
+  vertical-align: middle;
+  opacity: 0.6;
+  padding-right: 0.2rem;
+}
+
+.toggler:after {
+  display: inline-block;
+  transition: transform 300ms ease-in;
+  content: "\25b6";
+}
+
+.open-toggler > .toggler:after{
+  transform: rotate(90deg);
+}
+
+.pointer{
+  cursor: pointer;
+}
+
 .offcanvas{
   position: fixed;
   top: 0;
   height: 100%;
-  width: 33%;
+  width: 45%;
   padding: 2%;
   background-color: #3b3e40;
   color: #FFF;
@@ -13,7 +53,7 @@
 
 .open{
   transition: 600ms;
-  left: 67%;
+  left: 55%;
 }
 
 .rests:hover{

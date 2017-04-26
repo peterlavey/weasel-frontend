@@ -19,11 +19,11 @@ export class BreadcrumbComponent implements OnInit {
   navigate(directory: string){
     this.directories.splice(this.directories.indexOf(directory));
     this._processService.stopServices();
-    this.getFolder(directory);
+    this.getFolderByName(directory);
   }
 
-  getFolder(name:string): void {
-    this._processService.getFolder(name).subscribe(data => {
+  getFolderByName(name:string): void {
+    this._processService.getFolderByName(name).subscribe(data => {
       this.folder = data;
       this.directories.push(this.folder.name);
       this.folderChange.emit(this.folder);

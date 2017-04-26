@@ -73,6 +73,7 @@ export class AddComponent implements OnInit {
         if(res.error){
           this._toastr.error(res.error);
         }else{
+          $('#getFolders').click();
           this.folder.content.push(Object.assign({}, this._newRest));
           this.folderChange.emit(this.folder);
           this.restChange.emit();

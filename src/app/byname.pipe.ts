@@ -6,7 +6,7 @@ import { Rest } from './rest';
 })
 export class BynamePipe implements PipeTransform {
 
-  transform(items: Rest[], args?: any): any {
+  transform(items: any[], args?: any): any {
     if(items) return items.filter(item => item.name.toLocaleLowerCase().indexOf(args.toLocaleLowerCase()) !== -1);
   }
 

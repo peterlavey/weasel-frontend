@@ -15,13 +15,13 @@ export class ListComponent implements OnInit {
   @Output() folderChange = new EventEmitter<Folder>();
 
   constructor(private _processService: ProcessService) {
-    this.getFolder('root');
+    this.getFolderByName('root');
   }
 
   ngOnInit() { }
 
-  getFolder(name:string): void {
-    this._processService.getFolder(name).subscribe(data => {
+  getFolderByName(name:string): void {
+    this._processService.getFolderByName(name).subscribe(data => {
       this.folder = data;
       this.folderChange.emit(this.folder);
     });
@@ -30,5 +30,9 @@ export class ListComponent implements OnInit {
   emitParent(folder: Folder){
     this.folder = folder;
     this.folderChange.emit(this.folder);
+  }
+
+  validateProperty(obj:any, property:string){
+    return obj.hasOwnProperty(property);//obj.hasOwnProperty(property);
   }
 }

@@ -38,6 +38,7 @@ export class RestComponent implements OnInit {
     this._processService.removeRest(this.folder.name, this.rest).subscribe(res=> {
       this.folder = res;
       this.folderChange.emit(this.folder);
+      $('#getFolders').click();
     });
   }
 

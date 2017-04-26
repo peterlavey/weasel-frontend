@@ -1,8 +1,10 @@
 import { Component, ViewContainerRef } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ProcessService } from './process.service';
 import { Folder } from './folder';
 
 declare var cheet: any;
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ export class AppComponent {
   $folder: Folder;
   breadcrumb: string[];
 
-  constructor(private _toastr: ToastsManager, private _vcr: ViewContainerRef){
+  constructor(private _toastr: ToastsManager, private _vcr: ViewContainerRef, private _processService: ProcessService){
     this.$folder;
     this.breadcrumb = [];
     this.breadcrumb.push('root');
@@ -23,6 +25,10 @@ export class AppComponent {
       document.querySelector('img').style.display = 'inline';
       this._toastr.info('Konami code! Logro desbloqueado');
     });
+
+    window.onbeforeunload = ()=> {
+      return this._processService.stopServices().subscribe(res=> console.log('Finish Him!'));
+    }
   }
 
   folderChange(folder){

@@ -1,7 +1,7 @@
 
 <div class="row folder" (click)="open(folder.name, folder, $event)">
   <div class="col-md-10">
-    <h4 id="folder-{{deleteSpaces(folder.name)}}">
+    <h4 id="folder-group-{{deleteSpaces(folder.name)}}">
       <span class="toggler"></span>
       {{folder.name}}
     </h4>
@@ -10,19 +10,19 @@
     <i class="fa fa-times grey fa-1 col-md-3" (click)="removeGroup()"></i>
   </div>
 </div>
-<div id="rest-of-folder-{{deleteSpaces(folder.name)}}" *ngIf="folder.content.length" class="rest-of-folder">
+<div id="rest-group-{{deleteSpaces(folder.name)}}" *ngIf="folder.content.length" class="rest-of-folder">
   <div *ngFor="let rest of folder.content">
-    <div class="row">
-      <div class="col-md-7">
-        <p>{{rest.path}}</p>
-      </div>
+    <div class="row margin-negative">
       <div class="col-md-1">
-        <p>{{rest.status}}</p>
       </div>
-      <div class="col-md-4">
-        <p>{{rest.name}}</p>
+      <div class="col-md-11">
+        <h6>
+          <span class="badge badge-pill badge-{{getStatusRest(rest)}}">
+            {{rest.status}}
+          </span>
+          {{rest.name}}  <span class="text-muted">{{rest.path}}</span>
+        </h6>
       </div>
     </div>
-  </div>
 </div>
 <hr>

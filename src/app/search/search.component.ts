@@ -32,6 +32,12 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+
+  }
+
+  getStatusRest(rest: Rest){
+    let firstDigit = rest.status.toString().charAt(0);
+    return firstDigit === '2' ? 'success' : 'danger';
   }
 
   addGroup(folderGroup): void{

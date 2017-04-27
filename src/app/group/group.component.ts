@@ -19,13 +19,13 @@ export class GroupComponent implements OnInit {
   }
 
   open(name, obj, event){
-    if($(`#folder-${name}`).hasClass('open-toggler')){
-      $(`#folder-${name}`).removeClass('open-toggler');
-      $(`#rest-of-folder-${name}`).removeClass('open-toggler');
+    if($(`#folder-group-${name}`).hasClass('open-toggler')){
+      $(`#folder-group-${name}`).removeClass('open-toggler');
+      $(`#rest-group-${name}`).removeClass('open-toggler');
       //obj.isOpen = false;
     }else{
-      $(`#folder-${name}`).addClass('open-toggler');
-      $(`#rest-of-folder-${name}`).addClass('open-toggler');
+      $(`#folder-group-${name}`).addClass('open-toggler');
+      $(`#rest-group-${name}`).addClass('open-toggler');
       //obj.isOpen = true;
     }
 
@@ -40,6 +40,11 @@ export class GroupComponent implements OnInit {
       //this.folderChange.emit(this.folder);
       //$('#getFolders').click();
     });
+  }
+
+  getStatusRest(rest: any){
+    let firstDigit = rest.status.toString().charAt(0);
+    return firstDigit === '2' ? 'success' : 'danger';
   }
 
   deleteSpaces(str: string):string{

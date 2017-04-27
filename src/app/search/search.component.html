@@ -28,7 +28,7 @@
               <i><small class="text-danger" (click)="openConfirm(rest, $event)">Delete</small></i>
             </div>
           </div>
-          <div class="row">
+          <div class="row margin-negative">
             <div class="col">
               <p class="">{{rest.path}}</p>
             </div>
@@ -54,28 +54,38 @@
               <i><small class="text-info" (click)="addGroup(folder, $event)">Add</small></i>
             </div>
           </div>
-          <!-- RESTS -->
-          <div id="rest-of-folder-{{deleteSpaces(folder.name)}}" class="rest-of-folder">
-            <div *ngFor="let rest of (folder.content | byname: nameFilter)" >
-              <div class="" (click)="validateToAdd(rest)">
-                <div class="row">
-                  <div class="col-md-10">
-                    <h4 class="">{{rest.name}}</h4>
+          <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-11">
+              <!-- RESTS -->
+              <div id="rest-of-folder-{{deleteSpaces(folder.name)}}" class="rest-of-folder">
+                <div *ngFor="let rest of (folder.content | byname: nameFilter)">
+                  <!--<div class="" (click)="validateToAdd(rest)">-->
+                  <div class="row">
+                    <div class="col-md-10">
+                      <h6>
+                        <span class="badge badge-pill badge-{{getStatusRest(rest)}}">
+                          {{rest.status}}
+                        </span>
+                        {{rest.name}}
+                      </h6>
+                    </div>
+                    <!--<div class="col-md-2">
+                      <i><small class="text-danger" (click)="openConfirm(rest, $event)">Delete</small></i>
+                    </div>-->
                   </div>
-                  <div class="col-md-2">
-                    <i><small class="text-danger" (click)="openConfirm(rest, $event)">Delete</small></i>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <p class="">{{rest.path}}</p>
+                  <div class="row margin-negative">
+                    <div class="col">
+                      <p class="">{{rest.path}}</p>
+                    </div>
                   </div>
                 </div>
               </div>
-              <hr>
+              <!-- RESTS -->
             </div>
           </div>
-          <!-- RESTS -->
         </div>
         <hr>
       </div>

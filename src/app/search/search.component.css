@@ -4,15 +4,15 @@
 
 .rest-of-folder{
   display: none;
+  font-size: smaller;
+}
+
+.margin-negative{
+  margin-bottom: -3%;
 }
 
 .rest-of-folder.open-toggler{
   display: block;
-  background-color: #4a4a4a;
-}
-
-.rest-of-folder.open-toggler > div{
-  padding: 1%;
 }
 
 .toggler {

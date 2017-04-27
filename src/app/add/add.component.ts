@@ -33,11 +33,11 @@ export class AddComponent implements OnInit {
     this._options = {
       port:''
     };
-    this.statusList = new ConstantsService();
-    this.getOptions();
+    this.statusList = new ConstantsService();  
   }
 
   ngOnInit() {
+    this.getOptions();
   }
 
   enterKey(event): void{

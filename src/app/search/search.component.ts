@@ -60,7 +60,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  open(name, obj, event){
+  open(id, obj, event){
+    let name = this.deleteSpaces(id);
     if($(`#folder-${name}`).hasClass('open-toggler')){
       $(`#folder-${name}`).removeClass('open-toggler');
       $(`#rest-of-folder-${name}`).removeClass('open-toggler');

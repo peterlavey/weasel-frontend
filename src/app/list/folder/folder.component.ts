@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ProcessService } from '../process.service';
-import { Folder } from '../folder';
+import { ProcessService } from '../../process.service';
+import { Folder } from '../../folder';
 
 declare var $: any;
 
@@ -58,7 +58,7 @@ export class FolderComponent implements OnInit {
   }
 
   enterKeyEdit(event): void{
-    if(event.keyCode == 13){
+    if(event.keyCode === 13){
       $(`#${event.currentTarget.id}`).modal('hide');
       this.editFolder();
     }
@@ -68,8 +68,6 @@ export class FolderComponent implements OnInit {
     this._processService.editFolder(this.folderParent.name, this._newFolder, this.folder).subscribe(res =>{
       this.folderParent = res;
       this.folderChange.emit(this.folderParent);
-
-      //this.cleanFolderEdit();
     });
   }
 
@@ -85,4 +83,5 @@ export class FolderComponent implements OnInit {
   deleteSpaces(str: string):string{
     return str.replace(/ /g,'');
   }
+
 }

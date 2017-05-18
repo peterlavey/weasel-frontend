@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <div class="col tooltip-ws" align="right">
+    <div class="col tooltip-ws" align="right" [hidden]="isNotRunneable() || isRunning">
       <i class="fa fa-bars fa-2x text-white" (click)="openModal()">
         <span class="tooltiptext">Search services</span>
       </i>
@@ -20,12 +20,14 @@
       <h4 class="text-muted">{{folder.name}}</h4>
     </div>
 
-    <div class="col-md-1" align="right">
-      <a href="#" (click)="export()">Export</a>
+    <div class="col-md-2" align="right" [hidden]="isNotRunneable()">
+      <i class="fa fa-download" aria-hidden="true"></i>
+      <a href="#" (click)="export()">Export this Folder</a>
     </div>
-    <div class="col-md-1" align="right">
+    <div class="col-md-2" align="right">
       <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
-      <a href="#" (click)="searchFile()">Import</a>
+      <i class="fa fa-upload" aria-hidden="true"></i>
+      <a href="#" (click)="searchFile()" [hidden]="isRunning || !isNotRunneable()">Import Folder</a>
     </div>
   </nav>
 </header>

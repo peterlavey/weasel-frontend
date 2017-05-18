@@ -8,7 +8,7 @@
 
   <div *ngIf="folder.content.length">
     <div *ngFor="let rest of folder.content">
-      <app-rest [folder]="folder" [rest]="rest" (folderChange)="emitParent($event)"></app-rest>
+      <app-rest [isRunning]="isRunning" [folder]="folder" [rest]="rest" (folderChange)="emitParent($event)"></app-rest>
     </div>
   </div>
   <div *ngIf="validateProperty(folder, 'groups')">

@@ -6,23 +6,21 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
-import { RestComponent } from './rest/rest.component';
+import { RestComponent } from './list/rest/rest.component';
 import { AddComponent } from './add/add.component';
 
 import { ProcessService } from './process.service';
 
 import { RouterModule, Routes } from '@angular/router';
-import { FolderComponent } from './folder/folder.component';
+import { FolderComponent } from './list/folder/folder.component';
 import { FooterComponent } from './footer/footer.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { SwitchComponent } from './switch/switch.component';
 import { SearchComponent } from './search/search.component';
 import { BynamePipe } from './byname.pipe';
 import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { JsonFormatterComponent } from './json-formatter/json-formatter.component';
-import { CodemirrorModule } from 'ng2-codemirror';
 import { JsonViewerComponent } from './json-viewer/json-viewer.component';
-import { GroupComponent } from './group/group.component';
+import { GroupComponent } from './list/group/group.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -39,7 +37,6 @@ const appRoutes: Routes = [
     FolderComponent,
     FooterComponent,
     BreadcrumbComponent,
-    SwitchComponent,
     SearchComponent,
     BynamePipe,
     JsonFormatterComponent,
@@ -47,7 +44,6 @@ const appRoutes: Routes = [
     GroupComponent
   ],
   imports: [
-    CodemirrorModule,
     BrowserModule,
     FormsModule,
     HttpModule,

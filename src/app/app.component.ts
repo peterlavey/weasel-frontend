@@ -14,9 +14,11 @@ declare var $: any;
 export class AppComponent {
   $folder: Folder;
   breadcrumb: string[];
+  $isRunning: boolean;
 
   constructor(private _toastr: ToastsManager, private _vcr: ViewContainerRef, private _processService: ProcessService){
     this.$folder;
+    this.$isRunning = false;
     this.breadcrumb = [];
     this.breadcrumb.push('root');
     this._toastr.setRootViewContainerRef(_vcr);

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ProcessService } from '../process.service';
 import { Folder } from '../folder';
 
 declare var $: any;
@@ -10,14 +11,32 @@ declare var $: any;
 })
 export class FooterComponent implements OnInit {
   @Input() directories: string[];
-  @Input() folder: Folder;
+  @Input() folder: any;
+  @Input() isRunning: boolean;
   @Output() folderChange= new EventEmitter<Folder>();
-  public $isStarted: boolean;
-  constructor() {
-     this.$isStarted = false;
+  @Output() isRunningChange = new EventEmitter<boolean>();
+
+  constructor(private _processService: ProcessService) {
   }
 
   ngOnInit() { }
+
+  startRest(): void {
+    document.querySelector('.offcanvas').className = 'offcanvas';
+    this._processService.startServices(this.folder.name).subscribe(data => this.isRunningChange.emit(true));
+  }
+
+  stopRest(): void {
+    this._processService.stopServices().subscribe(data => this.isRunningChange.emit(false));
+  }
+
+  onChangeSwitch(state: boolean){
+    if(state){
+      this.startRest();
+    }else{
+      this.stopRest();
+    }
+  }
 
   emitParent(folder: Folder){
     console.log(`este es el folder ${this.folder}`)
@@ -25,6 +44,26 @@ export class FooterComponent implements OnInit {
   }
 
   validateProperty(obj:any, property:string){
-    return obj.hasOwnProperty(property);//obj.hasOwnProperty(property);
+    return obj.hasOwnProperty(property);
+  }
+
+  isNotRunneable(): boolean{
+    let _isNotRunneable = true;
+
+    if(this.folder.content.length) {
+      _isNotRunneable = false;
+    }
+
+    if(this.folder.hasOwnProperty('groups')) {
+      if(this.folder.groups.length) {
+        _isNotRunneable = false;
+      }
+    }
+
+    if(this.folder.folders.length) {
+      _isNotRunneable = true;
+    }
+
+    return _isNotRunneable;
   }
 }

@@ -1,9 +1,14 @@
-<app-header [folder]="$folder" (folderChange)="$folder=$event"></app-header>
+<app-header [isRunning]="$isRunning" [folder]="$folder" (folderChange)="$folder=$event"></app-header>
 <body class="p-5">
-  <!--<router-outlet></router-outlet>-->
-  <app-list [folder]="$folder" (folderChange)="folderChange($event)"></app-list>
+  <app-list [isRunning]="$isRunning" [folder]="$folder" (folderChange)="folderChange($event)"></app-list>
 </body>
+
+<app-footer [directories]="breadcrumb" [folder]="$folder" [isRunning]="$isRunning" (isRunningChange)="$isRunning=$event" (folderChange)="$folder=$event"></app-footer>
+
 <img src="assets/pbjt.gif" alt="" class="pbjt">
-<app-footer [directories]="breadcrumb" [folder]="$folder" (folderChange)="$folder=$event"></app-footer>
 
 <app-search [folder]="$folder" (folderChange)="$folder=$event"></app-search>
+
+
+
+

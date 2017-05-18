@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   rests: Rest[];
 
   @Input() folder: Folder;
+  @Input() isRunning: boolean;
   @Output() folderChange = new EventEmitter<Folder>();
 
   constructor(private _processService: ProcessService) {

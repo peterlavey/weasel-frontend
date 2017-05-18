@@ -6,35 +6,38 @@
       </a>
     </div>
     <div class="col-md-6 pt-3">
-      <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)" [hidden]="$isStarted"></app-breadcrumb>
-      <span [hidden]="!$isStarted" class="text-info">Para navegar debe bajar los servicios</span>
+      <app-breadcrumb [directories]="directories" [folder]="folder" (folderChange)="emitParent($event)" [hidden]="isRunning"></app-breadcrumb>
+      <span [hidden]="!isRunning" class="text-info">Para navegar debe bajar los servicios</span>
     </div>
     <div class="col-md-3 pt-2">
       <div class="row">
-        <div class="col" *ngIf="!folder.content.length">
-          <i class="fa fa-folder-o fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#folderModal" [hidden]="$isStarted">
+        <div class="col" *ngIf="!folder.content.length" [hidden]="!isNotRunneable()">
+          <i class="fa fa-folder-o fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#folderModal" [hidden]="isRunning">
             <span class="tooltiptext">New folder</span>
           </i>
-          <i class="fa fa-folder-o fa-2x text-muted" aria-hidden="true" [hidden]="!$isStarted"></i>
+          <i class="fa fa-folder-o fa-2x text-muted" aria-hidden="true" [hidden]="!isRunning"></i>
         </div>
-        <div class="col">
-          <i class="fa fa-plus fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#restModal" [hidden]="$isStarted">
+        <div class="col" [hidden]="isNotRunneable()">
+          <i class="fa fa-plus fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#restModal" [hidden]="isRunning">
             <span class="tooltiptext">New service rest</span>
           </i>
-          <i class="fa fa-plus fa-2x text-muted" aria-hidden="true" [hidden]="!$isStarted"></i>
+          <i class="fa fa-plus fa-2x text-muted" aria-hidden="true" [hidden]="!isRunning"></i>
         </div>
         <div class="col">
-          <i class="fa fa-cog fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#optionsModal" [hidden]="$isStarted">
+          <i class="fa fa-cog fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#optionsModal" [hidden]="isRunning">
             <span class="tooltiptext">Change port</span>
           </i>
-          <i class="fa fa-cog fa-2x text-muted" aria-hidden="true" [hidden]="!$isStarted"></i>
+          <i class="fa fa-cog fa-2x text-muted" aria-hidden="true" [hidden]="!isRunning"></i>
           <samp class="text-white" id="port"></samp>
         </div>
       </div>
     </div>
-    <div class="col-md-2 pt-2" align="right">
-      <app-switch [folder]="folder" (isStarted)="$isStarted=$event"></app-switch>
-      <h1 class="text-white"></h1>
+    <div class="col-md-2 pt-2" align="right" [hidden]="isNotRunneable()">
+      <label class="switch tooltip-ws">
+        <input type="checkbox" [(ngModel)]="isRunning" (ngModelChange)="onChangeSwitch(isRunning)">
+        <div class="slider round"></div>
+        <span class="tooltiptext tooltip">Start services</span>
+      </label>
     </div>
   </div>
 </nav>

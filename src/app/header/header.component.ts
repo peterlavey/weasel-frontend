@@ -11,7 +11,8 @@ declare var $: any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() folder: Folder;
+  @Input() folder: any;
+  @Input() isRunning: boolean;
   @Output() folderChange = new EventEmitter<Folder>();
   @ViewChild('fileInput') myFileInput: ElementRef;
   public reader: FileReader;
@@ -69,8 +70,8 @@ export class HeaderComponent implements OnInit {
   }
 
   fileChanged(event) {
-    if(!this.reader.onload){
-      this.reader.onload = (event:any)=>{
+    if(!this.reader.onload) {
+      this.reader.onload = (event: any) => {
         this.dataReaded = JSON.parse(event.target.result);
         $('#confirmIncludeRests').modal('show');
       };
@@ -78,7 +79,24 @@ export class HeaderComponent implements OnInit {
     this.reader.readAsText(event.target.files[0]);
   }
 
-  getFileLater() {
-    console.log(this.myFileInput.nativeElement.files[0]);
+  isNotRunneable(): boolean {
+    let _isNotRunneable = true;
+    if(this.folder){
+      if(this.folder.content.length) {
+        _isNotRunneable = false;
+      }
+
+      if(this.folder.hasOwnProperty('groups')) {
+        if(this.folder.groups.length) {
+          _isNotRunneable = false;
+        }
+      }
+
+      if(this.folder.folders.length) {
+        _isNotRunneable = true;
+      }
+    }
+
+    return _isNotRunneable;
   }
 }

@@ -80,7 +80,7 @@ export class HeaderComponent implements OnInit {
   }
 
   isNotRunneable(): boolean {
-    let _isNotRunneable = true;
+    let _isNotRunneable = false;
     if(this.folder){
       if(this.folder.content.length) {
         _isNotRunneable = false;

@@ -11,13 +11,13 @@
     </div>
     <div class="col-md-3 pt-2">
       <div class="row">
-        <div class="col" *ngIf="!folder.content.length" [hidden]="!isNotRunneable()">
+        <div class="col" *ngIf="!folder.content.length && !hasGroups()">
           <i class="fa fa-folder-o fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#folderModal" [hidden]="isRunning">
             <span class="tooltiptext">New folder</span>
           </i>
           <i class="fa fa-folder-o fa-2x text-muted" aria-hidden="true" [hidden]="!isRunning"></i>
         </div>
-        <div class="col" [hidden]="isNotRunneable()">
+        <div class="col" *ngIf="!folder.folders.length">
           <i class="fa fa-plus fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#restModal" [hidden]="isRunning">
             <span class="tooltiptext">New service rest</span>
           </i>

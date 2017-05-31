@@ -47,8 +47,19 @@ export class FooterComponent implements OnInit {
     return obj.hasOwnProperty(property);
   }
 
+  hasGroups(): boolean{
+    let _hasGroups = false;
+    if(this.folder.hasOwnProperty('groups')) {
+      if(this.folder.groups.length) {
+        _hasGroups = true;
+      }
+    }
+
+    return _hasGroups;
+  }
+
   isNotRunneable(): boolean{
-    let _isNotRunneable = true;
+    let _isNotRunneable = false;
 
     if(this.folder.content.length) {
       _isNotRunneable = false;

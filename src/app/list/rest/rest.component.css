@@ -22,3 +22,11 @@ h5{
 .fa-times:hover{
   color: #5bc0de;
 }
+
+.modal-dialog{
+  margin: 0;
+}
+
+.modal-content{
+  min-width: 200%;
+}

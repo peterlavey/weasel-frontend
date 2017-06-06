@@ -99,4 +99,15 @@ export class HeaderComponent implements OnInit {
 
     return _isNotRunneable;
   }
+
+  hasGroups(): boolean{
+    let _hasGroups = false;
+    if(this.folder.hasOwnProperty('groups')) {
+      if(this.folder.groups.length) {
+        _hasGroups = true;
+      }
+    }
+
+    return _hasGroups;
+  }
 }

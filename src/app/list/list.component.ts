@@ -3,6 +3,7 @@ import { ProcessService } from '../process.service';
 import { Rest } from '../rest';
 import { Folder } from '../folder';
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -11,7 +12,7 @@ import { Folder } from '../folder';
 export class ListComponent implements OnInit {
   rests: Rest[];
 
-  @Input() folder: Folder;
+  @Input() folder: any;
   @Input() isRunning: boolean;
   @Output() folderChange = new EventEmitter<Folder>();
 
@@ -33,7 +34,27 @@ export class ListComponent implements OnInit {
     this.folderChange.emit(this.folder);
   }
 
-  validateProperty(obj:any, property:string){
-    return obj.hasOwnProperty(property);//obj.hasOwnProperty(property);
+  haveAnyContent(): boolean{
+    let _hasContent = false;
+
+    if(this.folder.folders.length){
+      _hasContent = true;
+    }
+
+    if(this.folder.content.length){
+      _hasContent = true;
+    }
+
+    if(this.folder.hasOwnProperty('groups')){
+      if(this.folder.groups.length){
+        _hasContent = true;
+      }
+    }
+
+    return _hasContent;
+  }
+
+  validateProperty(obj:any, property:string): boolean{
+    return obj.hasOwnProperty(property);
   }
 }

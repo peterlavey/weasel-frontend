@@ -32,12 +32,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2 pt-2" align="right" [hidden]="isNotRunneable()">
-      <label class="switch tooltip-ws">
-        <input type="checkbox" [(ngModel)]="isRunning" (ngModelChange)="onChangeSwitch(isRunning)">
-        <div class="slider round"></div>
-        <span class="tooltiptext tooltip">Start services</span>
-      </label>
+    <div class="col-md-2 pt-2" align="center" *ngIf="folder.content.length || hasGroups()">
+      <i class="fa fa-power-off fa-2x" [ngClass]="{'text-danger': !isRunning, 'text-info switch-on': isRunning}" aria-hidden="true" (click)="handlerServices()"></i>
     </div>
   </div>
 </nav>

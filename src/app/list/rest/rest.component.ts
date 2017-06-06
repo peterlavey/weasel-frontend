@@ -68,7 +68,7 @@ export class RestComponent implements OnInit {
         this.rest.response = JSON.parse(this._newRest.response);
         this.rest.name = this._newRest.name;
         this.rest.status = this._newRest.status;
-        this.rest.path = this._newRest.path;
+        this.rest.path = this._newRest.path.trim();
     } catch (err) {
       _isValid = false;
     }

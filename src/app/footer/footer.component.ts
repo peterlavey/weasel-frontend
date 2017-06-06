@@ -30,11 +30,13 @@ export class FooterComponent implements OnInit {
     this._processService.stopServices().subscribe(data => this.isRunningChange.emit(false));
   }
 
-  onChangeSwitch(state: boolean){
-    if(state){
+  handlerServices(){
+    if(!this.isRunning){
       this.startRest();
+      this.isRunning = true;
     }else{
       this.stopRest();
+      this.isRunning = false;
     }
   }
 

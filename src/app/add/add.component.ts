@@ -1,9 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewContainerRef } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { ProcessService } from '../process.service';
-import { Rest } from '../rest';
 import { Folder } from '../folder';
-import { Options } from '../options';
 import { ConstantsService } from '../constants.service';
 
 declare var $: any;
@@ -16,8 +14,8 @@ declare var $: any;
 export class AddComponent implements OnInit {
   public statusList: any;
 
-  private _newRest:any;
-  private _newFolder:any;
+  private _newRest: any;
+  private _newFolder: any;
   private _options: any;
   public port: string;
 
@@ -31,19 +29,19 @@ export class AddComponent implements OnInit {
     this.clean();
 
     this._options = {
-      port:''
+      port: ''
     };
-    this.statusList = new ConstantsService();  
+    this.statusList = new ConstantsService();
   }
 
   ngOnInit() {
     this.getOptions();
   }
 
-  enterKey(event): void{
-    if(event.keyCode == 13){
+  enterKey(event): void {
+    if(event.keyCode === 13) {
       $(`#${event.currentTarget.id}`).modal('hide');
-      switch (event.currentTarget.id){
+      switch (event.currentTarget.id) {
         case 'folderModal':
           this.createFolder();
         break;
@@ -60,17 +58,16 @@ export class AddComponent implements OnInit {
   createFolder(): void{
     this._processService.createFolder(this.folder.name, this._newFolder).subscribe(res =>{
       this.folder = res;
-      console.log(`ADD CREATE FOLDER ${this.folder.folders}`);
       this.folderChange.emit(this.folder);
 
       this.clean();
     });
   }
 
-  createRest(){
-    if(this.validateJSON()){
+  createRest() {
+    if(this.validateJSON()) {
       this._processService.addRest(this.folder.name, this._newRest).subscribe(res  => {
-        if(res.error){
+        if(res.error) {
           this._toastr.error(res.error);
         }else{
           $('#getFolders').click();
@@ -81,52 +78,53 @@ export class AddComponent implements OnInit {
           this.clean();
         }
       });
-    }else{
+    }else {
       this._toastr.error('JSON invalido');
     }
   }
 
-  validateJSON(){
+  validateJSON() {
     let _isValid = true;
-    try{
+    try {
         this._newRest.response = JSON.parse(this._newRest.response);
-    }catch(err){
-    	_isValid = false;
+        this._newRest.path = this._newRest.path.trim();
+    } catch (err) {
+      _isValid = false;
     }
     return _isValid;
   }
 
-  getOptions(){
-    this._processService.getOptions().subscribe((res)=> {
+  getOptions() {
+    this._processService.getOptions().subscribe((res) => {
       this._options = res;
       this.updatePortDOM();
     });
   }
 
-  saveOptions(){
-    this._processService.saveOptions(this._options).subscribe(res =>{
+  saveOptions() {
+    this._processService.saveOptions(this._options).subscribe(() => {
       this.updatePortDOM();
     });
   }
 
-  updatePortDOM(){
+  updatePortDOM() {
     this.port = this._options.port;
     document.querySelector('#port').innerHTML = this.port;
   }
 
-  clean(){
-    this._newFolder={
-      id:0,
-      name:'',
-      content:[],
-      folders:[]
+  clean() {
+    this._newFolder = {
+      id: 0,
+      name: '',
+      content: [],
+      folders: []
     };
 
-    this._newRest={
-      name:'',
-      path:'',
+    this._newRest = {
+      name: '',
+      path: '',
       status: 200,
-      response:''
+      response: ''
     };
   }
 }

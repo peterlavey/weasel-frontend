@@ -1,0 +1,67 @@
+<h2>Cómo usar weasel:</h2>
+<p><i class="fa fa-folder-o fa-2x text-muted" aria-hidden="true"></i> Crear una carpeta.</p>
+<p><i class="fa fa-plus fa-2x text-muted" aria-hidden="true"></i> Crear un servicio.</p>
+<p><i class="fa fa-cog fa-2x text-muted" aria-hidden="true"></i> Cambiar el puerto donde se lenvatarán los servicios, a la derecha muestra el puerto actual.</p>
+<p><i class="fa fa-power-off fa-2x text-muted" aria-hidden="true"></i> Levanta los servicios contenidos en el directorio actua.l</p>
+<p><i class="fa fa-bars fa-2x text-muted" aria-hidden="true"></i> Buscar y reutilizar servicios tanto de forma individual cómo agrupados.</p>
+<p><i class="fa fa-download fa-2x text-muted" aria-hidden="true"></i> Importar una carpeta con sus servicios.</p>
+<p><i class="fa fa-upload fa-2x text-muted" aria-hidden="true"></i> Exportar esta carpeta con sus servicios.</p>
+<hr>
+<br>
+<div class="row">
+  <div class="col">
+    <h2 >Carpetas</h2>
+    <p>Cumplen la función de mantener tus servicios ordenados, cuando se agregan servicios dentro de una carpeta esta toma el comportamiento de una agrupación
+      de servicios, esto quiere decir que ya no puede contener subcarpetas y que ya puedes inicializar los servicios contenidos en ella, además puede
+      ser reutilizada desde el menú &nbsp;<i class="fa fa-bars fa-2x text-muted" aria-hidden="true"></i> opción <label class="text-info"> FOLDER </label> haciendo click en el texto <label class="text-info">add</label>.
+      Puedes navegar por las carpetas haciendo click en los links a la derecha del logo que te mostrará cómo base la carpeta <label class="text-info"> > root </label></p>
+    <div class="row">
+      <div class="col">
+        <p><i class="fa fa-pencil fa-2x text-muted"></i> Editar nombre de la carpeta.</p>
+      </div>
+      <div class="col">
+        <p><i class="fa fa-trash fa-2x text-muted"></i> Eliminar carpeta, esta acción no eliminará de forma definitiva los servicios que contenga.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<br>
+<div class="row">
+  <div class="col">
+    <h2>Servicios</h2>
+    <p>Son los rest que se despliegan en conjunto en un puerto determinado sin necesidad de indicar si son GET, POST, etc...</p>
+    <div class="row">
+      <div class="col">
+        <p><i class="fa fa-eye fa-2x text-muted"></i> Muestra el JSON de respuesta formateado, si no se ingresó un json valido no muestra nada.</p>
+      </div>
+      <div class="col">
+        <p><i class="fa fa-pencil fa-2x text-muted"></i> Editar los datos del servicio, si se edita el nombre crea una copia del servicio que se está editando, es muy útil si se requiere por ejemplo un caso de error ya
+          que solo bastaría con agregar en el nombre algo que lo identifique cómo un error y cambiar el status.</p>
+      </div>
+      <div class="col">
+        <p><i class="fa fa-times fa-2x text-muted"></i> Quitar de la carpeta, esto no elimina el servicio, aún seguirá existiendo en el buscador.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<br>
+<div class="row">
+  <div class="col">
+    <h2>Buscador</h2>
+    <p>Tiene dos filtros, <label class="text-info">REST</label> y <label class="text-info">FOLDER</label>, en los cuales se puede buscar escribiendo en el input.</p>
+    <div class="row">
+      <div class="col">
+        <h4>REST</h4>
+        <p><i class="fa fa-hand-pointer-o fa-2x text-muted"></i> Para agregar se hace click en el nombre.</p>
+        <p><label class="text-danger">Delete</label> Elimina el Servicio de forma definitiva.</p>
+      </div>
+      <div class="col">
+        <h4>FOLDER</h4>
+        <p><i class="fa fa-hand-pointer-o fa-2x text-muted"></i> Muestra servicios que contiene.</p>
+        <p><label class="text-info">Add</label> Agrega grupo de servicios a la carpeta.</p>
+      </div>
+    </div>
+  </div>
+</div>

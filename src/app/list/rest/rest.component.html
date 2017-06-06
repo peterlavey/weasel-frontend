@@ -30,7 +30,7 @@
         </button>
       </div>
       <div class="row modal-body">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control" placeholder="My rest" [(ngModel)]="_newRest.name" (keydown)="enterKeyEdit($event)">
@@ -48,7 +48,7 @@
             </select>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="form-group">
             <label for="response">Response</label>
             <app-json-viewer [(json)]="_newRest.response"></app-json-viewer>

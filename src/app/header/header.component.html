@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+  <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
     <div class="row">
       <div class="col">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,14 +20,14 @@
       <h4 class="text-muted">{{folder.name}}</h4>
     </div>
 
-    <div class="col-md-2" align="right" [hidden]="isNotRunneable()">
+    <div class="col-md-2" align="right" *ngIf="folder.content.length || hasGroups()">
       <i class="fa fa-download" aria-hidden="true"></i>
       <a href="#" (click)="export()">Export this Folder</a>
     </div>
-    <div class="col-md-2" align="right">
+    <div class="col-md-2" align="right" [hidden]="folder.content.length || hasGroups()">
       <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
       <i class="fa fa-upload" aria-hidden="true"></i>
-      <a href="#" (click)="searchFile()" [hidden]="isRunning || !isNotRunneable()">Import Folder</a>
+      <a href="#" (click)="searchFile()">Import Folder</a>
     </div>
   </nav>
 </header>
@@ -38,7 +38,7 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="form-group">
-          <label for="exampleInputPassword1">¿Desea incluir los rest de esta importación a la lista?</label>
+          <label>¿Desea incluir los rest de esta importación a la lista?</label>
         </div>
       </div>
       <div class="modal-footer">

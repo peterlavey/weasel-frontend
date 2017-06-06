@@ -22,18 +22,17 @@ export class AppComponent {
     this.breadcrumb = [];
     this.breadcrumb.push('root');
     this._toastr.setRootViewContainerRef(_vcr);
-    //Konami code
-    cheet('↑ ↑ ↓ ↓ ← → ← → b a', ()=>{
-      document.querySelector('img').style.display = 'inline';
+    cheet('↑ ↑ ↓ ↓ ← → ← → b a', () => {
+      document.getElementById('pbjt').style.display = 'inline';
       this._toastr.info('Konami code! Logro desbloqueado');
     });
 
-    window.onbeforeunload = ()=> {
+    window.onbeforeunload = () => {
       return this._processService.stopServices().subscribe(res=> console.log('Finish Him!'));
     }
   }
 
-  folderChange(folder){
+  folderChange(folder) {
     if(this.$folder && this.$folder.name !== folder.name) this.breadcrumb.push(folder.name);
     this.$folder = folder;
   }

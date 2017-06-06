@@ -21,6 +21,7 @@ import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { JsonFormatterComponent } from './json-formatter/json-formatter.component';
 import { JsonViewerComponent } from './json-viewer/json-viewer.component';
 import { GroupComponent } from './list/group/group.component';
+import { TutorialComponent } from './tutorial/tutorial.component';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
     BynamePipe,
     JsonFormatterComponent,
     JsonViewerComponent,
-    GroupComponent
+    GroupComponent,
+    TutorialComponent
   ],
   imports: [
     BrowserModule,

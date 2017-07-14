@@ -12,7 +12,7 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  $folder: Folder;
+  $folder: any;
   breadcrumb: string[];
   $isRunning: boolean;
 
@@ -35,5 +35,30 @@ export class AppComponent {
   folderChange(folder) {
     if(this.$folder && this.$folder.name !== folder.name) this.breadcrumb.push(folder.name);
     this.$folder = folder;
+    this.generateGroupRadios();
+  }
+
+  generateGroupRadios() {
+    const arr = [];
+
+    this.$folder.content.forEach((rest) => arr.push(rest.path));
+
+    arr.forEach((path) => {
+      const arrayIndexs = [];
+      this.$folder.content.forEach((rest, index) => {
+        if (rest.path === path) {
+          arrayIndexs.push(index);
+        }
+      });
+      if (arrayIndexs.length > 1) {
+        const key = arrayIndexs.join('');
+        this.$folder.content.forEach((rest, index) => {
+          if (arrayIndexs.indexOf(index) !== -1) {
+            rest.groupRadio = key;
+            rest.isSelected = false;
+          }
+        });
+      }
+    });
   }
 }

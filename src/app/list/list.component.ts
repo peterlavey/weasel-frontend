@@ -20,16 +20,17 @@ export class ListComponent implements OnInit {
     this.getFolderByName('root');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+  }
 
-  getFolderByName(name:string): void {
+  getFolderByName(name: string): void {
     this._processService.getFolderByName(name).subscribe(data => {
       this.folder = data;
       this.folderChange.emit(this.folder);
     });
   }
 
-  emitParent(folder: Folder){
+  emitParent(folder: Folder) {
     this.folder = folder;
     this.folderChange.emit(this.folder);
   }
@@ -37,16 +38,16 @@ export class ListComponent implements OnInit {
   haveAnyContent(): boolean{
     let _hasContent = false;
 
-    if(this.folder.folders.length){
+    if (this.folder.folders.length){
       _hasContent = true;
     }
 
-    if(this.folder.content.length){
+    if (this.folder.content.length){
       _hasContent = true;
     }
 
-    if(this.folder.hasOwnProperty('groups')){
-      if(this.folder.groups.length){
+    if (this.folder.hasOwnProperty('groups')) {
+      if (this.folder.groups.length) {
         _hasContent = true;
       }
     }
@@ -54,7 +55,7 @@ export class ListComponent implements OnInit {
     return _hasContent;
   }
 
-  validateProperty(obj:any, property:string): boolean{
+  validateProperty(obj: any, property: string): boolean {
     return obj.hasOwnProperty(property);
   }
 }

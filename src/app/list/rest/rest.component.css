@@ -2,6 +2,10 @@ h5{
   display: inline;
 }
 
+.radio{
+  display: initial;
+}
+
 .badge{
   bottom: 10%;
   position: relative;

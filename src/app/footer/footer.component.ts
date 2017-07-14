@@ -22,8 +22,18 @@ export class FooterComponent implements OnInit {
   ngOnInit() { }
 
   startRest(): void {
+    const filterContent = [];
+    this.folder.content.forEach((rest) => {
+      if (rest.hasOwnProperty('isSelected')) {
+        if (rest.isSelected) {
+          filterContent.push(rest);
+        }
+      }else {
+        filterContent.push(rest);
+      }
+    });
     document.querySelector('.offcanvas').className = 'offcanvas';
-    this._processService.startServices(this.folder.name).subscribe(data => this.isRunningChange.emit(true));
+    this._processService.startServices(this.folder.name, filterContent).subscribe(data => this.isRunningChange.emit(true));
   }
 
   stopRest(): void {

@@ -15,12 +15,12 @@ export class ProcessService {
   constructor(private _http:  Http) { }
 
   import(name: string, addRest: string, folder: any){
-    let body = JSON.stringify(folder);
+    const body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/import/folder/${name}/${addRest}`, body, this._options).map((res: Response) => res.json());
   }
 
   getAddGroup(directory: string, folder: any){
-    let body = JSON.stringify(folder);
+    const body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/add/group/${directory}`, body, this._options).map((res: Response) => res.json());
   }
 
@@ -33,7 +33,7 @@ export class ProcessService {
   }
 
   createFolder(name: string, folder: any){
-    let body = JSON.stringify(folder);
+    const body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/add/folder/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
@@ -42,12 +42,12 @@ export class ProcessService {
   }
 
   deleteFolder(name:string, folder: Folder): Observable<Folder>{
-    let body = JSON.stringify(folder);
+    const body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/delete/folder/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   editFolder(name: string, folder: any, oldName: string){
-    let body = JSON.stringify(folder);
+    const body = JSON.stringify(folder);
     return this._http.post(`${this.host}/weasel-api/edit/folder/${name}/${oldName}`, body, this._options).map((res: Response) => res.json());
   }
 
@@ -56,27 +56,27 @@ export class ProcessService {
   }
 
   addRest(name: string, rest: Rest): Observable<any>{
-    let body = JSON.stringify(rest);
+    const body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/add/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   deleteRest(name: string, rest: Rest): Observable<any>{
-    let body = JSON.stringify(rest);
+    const body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/delete/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   editRest(name: string, rest: Rest): Observable<any>{
-    let body = JSON.stringify(rest);
+    const body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/edit/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   removeRest(name: string, rest: Rest): Observable<any>{
-    let body = JSON.stringify(rest);
+    const body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/remove/rest/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
   addRestToFolder(name: string, rest: Rest): Observable<any>{
-    let body = JSON.stringify(rest);
+    const body = JSON.stringify(rest);
     return this._http.post(`${this.host}/weasel-api/add/rest-folder/${name}`, body, this._options).map((res: Response) => res.json());
   }
 
@@ -88,8 +88,9 @@ export class ProcessService {
     return this._http.post(`${this.host}/weasel-api/options`, options, this._options).map((res: Response) => console.log(res));
   }
 
-  startServices(name:string): Observable<any>{
-    return this._http.get(`${this.host}/weasel-api/start/${name}`, this._options).map((res: Response) => console.log(res));
+  startServices(name:string, content:any): Observable<any>{
+    const body = JSON.stringify(content);
+    return this._http.post(`${this.host}/weasel-api/start/${name}`, body, this._options).map((res: Response) => console.log(res));
   }
 
   stopServices(): Observable<any>{

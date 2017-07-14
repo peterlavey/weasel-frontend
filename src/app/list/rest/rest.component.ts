@@ -13,8 +13,8 @@ declare var $: any;
 })
 export class RestComponent implements OnInit {
   @Input() isRunning: boolean;
-  @Input() rest: Rest;
-  @Input() folder: Folder;
+  @Input() rest: any;
+  @Input() folder: any;
   @Output() folderChange = new EventEmitter<Folder>();
 
   public badgeState: string;
@@ -94,5 +94,15 @@ export class RestComponent implements OnInit {
 
   deleteSpaces(str: string): string{
     return str.replace(/ /g, '');
+  }
+
+  onRestChange(): void {
+    this.folder.content.forEach((rest) => {
+      if (rest.groupRadio === this.rest.groupRadio) {
+        rest.isSelected = false;
+      }
+    });
+
+    this.rest.isSelected = true;
   }
 }

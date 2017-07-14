@@ -1,6 +1,9 @@
 <div class="">
   <div class="row">
     <div class="col-md-10">
+      <div class="radio radio-info" *ngIf="rest.groupRadio">
+        <input type="radio" [checked]="rest.isSelected === true" (change)="onRestChange()"  name="{{rest.groupRadio}}" [value]="!rest.isSelected">
+      </div>
       <span class="badge badge-pill badge-{{badgeState}}">{{rest.status}}</span>
       <h5>&nbsp;{{rest.name}}</h5>
     </div>

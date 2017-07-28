@@ -117,7 +117,7 @@ export class RestComponent implements OnInit {
       case '3':
         return 'text-danger';
       case '4':
-        return 'text-info';
+        return '';
       case '5':
         return 'text-muted';
       default:

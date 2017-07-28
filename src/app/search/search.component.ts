@@ -80,6 +80,7 @@ export class SearchComponent implements OnInit {
       this.folder = res;
       this.folderChange.emit(this.folder);
       $('#getFolders').click();
+      $('#generateGroupRadios').click();
     });
   }
 

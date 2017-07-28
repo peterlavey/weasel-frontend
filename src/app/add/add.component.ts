@@ -74,7 +74,7 @@ export class AddComponent implements OnInit {
           this.folder.content.push(Object.assign({}, this._newRest));
           this.folderChange.emit(this.folder);
           this.restChange.emit();
-
+          $('#generateGroupRadios').click();
           this.clean();
         }
       });

@@ -2,7 +2,15 @@
   <div class="row">
     <div class="col-md-10">
       <div class="radio radio-info" *ngIf="rest.groupRadio">
-        <input type="radio" [checked]="rest.isSelected === true" (change)="onRestChange()"  name="{{rest.groupRadio}}" [value]="!rest.isSelected">
+        <div [hidden]="isRunning">
+          <i [ngClass]="['fa fa-dot-circle-o fa-1', getColorGroupRadio()]" [hidden]="!rest.isSelected || isRunning"></i>
+          <i [ngClass]="['fa fa-circle-o fa-1', getColorGroupRadio()]" [hidden]="rest.isSelected || isRunning" (click)="onRestChange()"></i>
+        </div>
+
+        <div [hidden]="!isRunning">
+          <i class="fa fa-dot-circle-o grey fa-1" [hidden]="!rest.isSelected"></i>
+          <i class="fa fa-circle-o grey fa-1" [hidden]="rest.isSelected"></i>
+        </div>
       </div>
       <span class="badge badge-pill badge-{{badgeState}}">{{rest.status}}</span>
       <h5>&nbsp;{{rest.name}}</h5>

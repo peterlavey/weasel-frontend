@@ -105,4 +105,23 @@ export class RestComponent implements OnInit {
 
     this.rest.isSelected = true;
   }
+
+  getColorGroupRadio(): string {
+    switch (this.rest.groupRadio.charAt(0)) {
+      case '0':
+        return 'text-primary';
+      case '1':
+        return 'text-success';
+      case '2':
+        return 'text-warning';
+      case '3':
+        return 'text-danger';
+      case '4':
+        return 'text-info';
+      case '5':
+        return 'text-muted';
+      default:
+        return '';
+    }
+  }
 }

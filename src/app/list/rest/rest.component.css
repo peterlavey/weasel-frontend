@@ -34,3 +34,7 @@ h5{
 .modal-content{
   min-width: 200%;
 }
+
+.modal-lg{
+  max-width: 50%;
+}

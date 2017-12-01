@@ -1,5 +1,5 @@
-<header>
-  <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+<header class="fixed-top ">
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
     <div class="row">
       <div class="col">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,15 +16,15 @@
     </div>
   </nav>
   <nav class="navbar navbar-toggleable-md submenu bg-faded" *ngIf="folder">
-    <div class="col-md-10">
+    <div class="col-md-8">
       <h4 class="text-muted">{{folder.name}}</h4>
     </div>
 
-    <div class="col-md-2" align="right" *ngIf="folder.content.length || hasGroups()">
+    <div class="col-md-4" align="right" *ngIf="folder.content.length || hasGroups()">
       <i class="fa fa-download" aria-hidden="true"></i>
       <a href="#" (click)="export()">Export this Folder</a>
     </div>
-    <div class="col-md-2" align="right" [hidden]="folder.content.length || hasGroups()">
+    <div class="col-md-4" align="right" [hidden]="folder.content.length || hasGroups()">
       <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
       <i class="fa fa-upload" aria-hidden="true"></i>
       <a href="#" (click)="searchFile()">Import Folder</a>

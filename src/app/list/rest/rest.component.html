@@ -3,8 +3,8 @@
     <div class="col-md-10">
       <div class="radio radio-info" *ngIf="rest.groupRadio">
         <div class="d-inline" *ngIf="!isRunning">
-          <i [ngClass]="['fa fa-dot-circle-o fa-1', getColorGroupRadio()]" [hidden]="!rest.isSelected || isRunning"></i>
-          <i [ngClass]="['fa fa-circle-o fa-1', getColorGroupRadio()]" [hidden]="rest.isSelected || isRunning" (click)="onRestChange()"></i>
+          <i [ngClass]="['fa fa-dot-circle-o fa-1', getColorGroupRadio()]" [hidden]="!rest.isSelected"></i>
+          <i [ngClass]="['fa fa-circle-o fa-1', getColorGroupRadio()]" [hidden]="rest.isSelected" (click)="onRestChange()"></i>
         </div>
 
         <div class="d-inline" *ngIf="isRunning">

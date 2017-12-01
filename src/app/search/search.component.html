@@ -2,15 +2,14 @@
 <app-add [folder]="folder" (folderChange)="emitParent($event)" (restChange)="getRests()"></app-add>
 
 <!-- Off canvas del buscador -->
-<div class="offcanvas">
+<div class="offcanvas" (appClickOutside)="dismiss">
 
   <div class="filters">
-    <i class="fa fa-times fa-2x text-white" (click)="dismiss()"></i>
     <div class="row mb-4">
       <div class="col">
         <button type="button" class="col-md-2 btn btn-outline-primary pointer" (click)="changeFilterSearch()" [hidden]="isFilterRest">REST</button>
         <button type="button" class="col-md-2 btn btn-outline-primary pointer" (click)="changeFilterSearch()" [hidden]="!isFilterRest">FOLDER</button>
-        <input id="search" class="form-control col-md-8" type="text" placeholder="Search" [(ngModel)]="nameFilter">
+        <input id="search" class="form-control col-md-9" type="text" placeholder="Search" [(ngModel)]="nameFilter">
       </div>
     </div>
   </div>

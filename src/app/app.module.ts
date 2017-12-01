@@ -22,6 +22,7 @@ import { JsonFormatterComponent } from './json-formatter/json-formatter.componen
 import { JsonViewerComponent } from './json-viewer/json-viewer.component';
 import { GroupComponent } from './list/group/group.component';
 import { TutorialComponent } from './tutorial/tutorial.component';
+import { ClickOutsideDirective } from './click-outside.directive';
 
 const appRoutes: Routes = [
   { path: 'list', component: ListComponent },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     JsonFormatterComponent,
     JsonViewerComponent,
     GroupComponent,
-    TutorialComponent
+    TutorialComponent,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,

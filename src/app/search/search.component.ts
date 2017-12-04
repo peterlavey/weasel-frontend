@@ -125,12 +125,8 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  changeFilterSearch(){
-    if(this.isFilterRest){
-      this.isFilterRest = false;
-    }else{
-      this.isFilterRest = true;
-    }
+  changeFilterSearch(isRest) {
+    this.isFilterRest = isRest;
   }
 
   deleteSpaces(str: string):string{

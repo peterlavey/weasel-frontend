@@ -24,10 +24,15 @@
       <i class="fa fa-download" aria-hidden="true"></i>
       <a href="#" (click)="export()">Export this Folder</a>
     </div>
-    <div class="col-md-4" align="right" [hidden]="folder.content.length || hasGroups()">
+    <div class="col-md-2" align="right" [hidden]="folder.content.length || hasGroups()">
       <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
       <i class="fa fa-upload" aria-hidden="true"></i>
-      <a href="#" (click)="searchFile()">Import Folder</a>
+      <a href="#" (click)="searchFile('folder')">Import Folder</a>
+    </div>
+    <div class="col-md-2" align="right" [hidden]="folder.content.length || hasGroups()">
+      <input id="fileInput" type="file" [hidden]="true" (change)="fileChanged($event)">
+      <i class="fa fa-upload" aria-hidden="true"></i>
+      <a href="#" (click)="searchFile('HAR')">Import HAR</a>
     </div>
   </nav>
 </header>
@@ -44,6 +49,29 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="import(true)">Sí</button>
         <button type="button" class="btn btn-default" (click)="import(false)">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Nombre de folder HAR -->
+<div class="modal fade" id="setNameHARFolder" tabindex="-1" role="dialog" aria-labelledby="folderModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create Folder</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Name</label>
+          <input  type="text" value="" class="form-control" placeholder="My folder" [(ngModel)]="folderHAR">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="import(false)">Save</button>
       </div>
     </div>
   </div>

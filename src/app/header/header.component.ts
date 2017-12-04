@@ -16,7 +16,9 @@ export class HeaderComponent implements OnInit {
   @Output() folderChange = new EventEmitter<Folder>();
   @ViewChild('fileInput') myFileInput: ElementRef;
   public reader: FileReader;
-  public dataReaded: Folder;
+  public dataReaded: any;
+  public importType: string;
+  public folderHAR: string;
 
   constructor(private _processService: ProcessService, private _toastr: ToastsManager, private _vcr: ViewContainerRef) {
     this.reader = new FileReader();
@@ -34,7 +36,8 @@ export class HeaderComponent implements OnInit {
     this.download(`${this.folder.name}.json`, JSON.stringify(this.folder));
   }
 
-  searchFile(){
+  searchFile(type){
+    this.importType = type;
     document.querySelector('input').click();
   }
 
@@ -52,16 +55,22 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  import(importRest: boolean){
+  import(importRest: boolean) {
     let _importRest = importRest ? '1' : '0';
-    $('#confirmIncludeRests').modal('hide');
+
     $("#fileInput").val('');
 
-    this.dataReaded.folders.splice(0, this.dataReaded.folders.length);
+    if (this.importType === 'HAR') {
+      $('#setNameHARFolder').modal('hide');
+      this.dataReaded = this.getFormatHAR();
+    }else {
+      $('#confirmIncludeRests').modal('hide');
+      this.dataReaded.folders.splice(0, this.dataReaded.folders.length);
+    }
     this._processService.import(this.folder.name, _importRest, this.dataReaded).subscribe(data => {
-      if(data.error){
+      if (data.error) {
         this._toastr.error(data.error);
-      }else{
+      }else {
         this.folder = data;
         this.folderChange.emit(this.folder);
         $('#getRests').click();
@@ -69,11 +78,36 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  getFormatHAR() {
+    let dataReadedTmp = [];
+    let folderTmp = {id: 3, name: '', content: [], folders: []};
+    this.dataReaded.log.entries.forEach(function(har){
+      if (har.response.content.mimeType === 'application/json') {
+        let data = {name: '', path: '', status: '', response: ''};
+        data.name = har.request.url.split('/').splice(4, har.request.url.split('/').length).join(' ');
+        data.path = `/${har.request.url.split('/').slice(3, har.request.url.length).join('/')}`;
+        data.status = har.response.status;
+        data.response =  typeof har.response.content.text === 'undefined' ? {} : JSON.parse(har.response.content.text);
+
+        dataReadedTmp.push(data);
+      }
+    });
+
+    folderTmp.name = this.folderHAR;
+    folderTmp.content = dataReadedTmp;
+
+    return folderTmp;
+  }
+
   fileChanged(event) {
     if(!this.reader.onload) {
       this.reader.onload = (event: any) => {
         this.dataReaded = JSON.parse(event.target.result);
-        $('#confirmIncludeRests').modal('show');
+        if (this.importType === 'HAR') {
+          $('#setNameHARFolder').modal('show');
+        }else {
+          $('#confirmIncludeRests').modal('show');
+        }
       };
     }
     this.reader.readAsText(event.target.files[0]);

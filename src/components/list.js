@@ -1,21 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Folder from './folder';
+import Rest from './rest';
+import Group from './group';
+import Tutorial from './tutorial';
+import {getFolders} from '../actions/actions';
 
-const List = ()=> {
-    return (
-        <div className="container mx-auto" hidden="folder">
-            <Folder></Folder>
-            <Rest></Rest>
-            <Group></Group>
-            <Tutorial></Tutorial>
-        </div>
-    )
-};
+class List extends Component {
+    componentWillMount() {
+        //this.props.getFolders();
+    }
+
+    render() {
+        return (
+            <div className="container mx-auto mt-5">
+                <Folder></Folder>
+            </div>
+        )
+    }
+}
 
 const mapStateToProps = state => {
     return {
-        folders: [1,2,3]
+        folders: state.folders
     }
 };
 

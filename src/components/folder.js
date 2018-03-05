@@ -9,13 +9,13 @@ class Folder extends Component {
 
     render() {
         if(!this.props.folders.length){
-            return <h2>Loading...</h2>
+            return <h1>Sin carpetas</h1>
         }
 
         const folderComponentList = this.props.folders.map((folder, index)=> {
             return (
                 <div key={index} className="row">
-                    <div className="col-md-10" onClick={()=> this.props.getFolderByName()}>
+                    <div className="col-md-10" onClick={()=> this.props.getFolders(folder.name)}>
                         <h3>
                             <p>{folder.name}</p>
                         </h3>
@@ -40,23 +40,21 @@ class Folder extends Component {
 
 const mapStateToProps = state => {
     return {
-        folders: state.folders
+        folders: state.folders,
+        currentFolder: state.currentFolder
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        getFolderByName() {
-
-        },
         openEditModal() {
 
         },
         openConfirm() {
 
         },
-        getFolders() {
-            dispatch(getFolders());
+        getFolders(folderSelected) {
+            dispatch(getFolders(folderSelected));
         }
     }
 };

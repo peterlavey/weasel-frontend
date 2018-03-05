@@ -1,4 +1,4 @@
-export default function folder(
+export default function folders(
     state = {
         folders: []
     },

@@ -22,15 +22,13 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-        folders: state.folders
+
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        test() {
 
-        }
     }
 };
 

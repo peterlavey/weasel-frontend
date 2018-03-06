@@ -1,5 +1,414 @@
-body {
+body{
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+i{
+  cursor: pointer;
+}
+
+/* Tooltip container */
+.tooltip-ws {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip-ws .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: initial;
+  font-family: "Roboto";
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+/* Tooltip arrow */
+.tooltip-ws .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip-ws:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.breadcrumb{
+  background-color: transparent;
+  color: #00bfff;
+  display: flex;
+  margin: initial;
+  padding: initial;
+}
+
+.breadcrumb ol{
+  list-style-type: none;
+  margin: initial;
+  padding: initial;
+}
+
+/*.breadcrumb ol li:before{
+  content: ' > '
+}*/
+
+.breadcrumb ol:last-child{
+  color: #a2a2a2;
+}
+
+.breadcrumb ol li:not(last-child){
+  cursor: pointer;
+}
+
+i{
+  cursor: pointer;
+}
+
+.switch-on{
+  text-shadow: 0px 0px 10px #5bc0de;
+}
+
+@font-face {
+  font-family: 'Queen';
+  src: url('./assets/queen-of-heaven-regular.ttf');
+}
+
+.logo {
+  font-family: 'Queen';
+  font-size: xx-large;
+  padding: inherit;
+}
+
+.submenu{
+  height: 38px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-top: 4%;
+  min-width: 100%;
+  z-index: 1;
+  position: fixed;
+}
+
+ul {
+  background-color: rgb(30, 30, 30);
+}
+
+ul li {
+  list-style-type: none;
+}
+
+li p {
+  display: inline;
+}
+
+.toggler {
+  color: white;
+  line-height: 1.2rem;
+  font-size: 0.7rem;
+  vertical-align: middle;
+  opacity: 0.6;
+  padding-right: 0.2rem;
+}
+
+.toggler:after {
+  display: inline-block;
+  transition: transform 300ms ease-in;
+  content: "\25b6";
+}
+
+.open > .toggler:after{
+  transform: rotate(90deg);
+}
+
+.attribute {
+  color: #23A0DB;
+}
+.red {
+  color: #EC4242;
+}
+
+.green {
+  color: #31F031;
+}
+
+.blue {
+  color: #66C2FF;
+}
+
+.yellow {
+  color: #EEC97D;
+}
+
+.white {
+  color: #fff;
+}
+
+.folder{
+  cursor: pointer;
+  color: #909090;
+}
+
+.folder:hover{
+  font-size: x-large;
+  color: #000;
+}
+
+.rest:hover{
+  font-size: x-large;
+  color: #000;
+}
+
+.container{
+  bottom: 3em;
+  padding-top: 9%;
+}
+
+.grey{
+  color: #d6d6d6;
+}
+
+.fa-pencil:hover{
+  color: #5bc0de;
+}
+
+.fa-trash:hover{
+  color: #5bc0de ;
+}
+
+.folder{
+  cursor: pointer;
+  color: #909090;
+}
+
+.folder:hover{
+  color: #000;
+}
+
+.rest-of-folder{
+  display: none;
+}
+
+.rest-of-folder.open-toggler{
+  display: block;
+}
+
+.rest-of-folder.open-toggler > div{
+  padding: 1%;
+}
+
+.toggler {
+  color: #000;
+  line-height: 1.2rem;
+  font-size: 0.7rem;
+  vertical-align: middle;
+  opacity: 0.6;
+  padding-right: 0.2rem;
+}
+
+.toggler:after {
+  display: inline-block;
+  transition: transform 300ms ease-in;
+  content: "\25b6";
+}
+
+.open-toggler > .toggler:after{
+  transform: rotate(90deg);
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.badge{
+  bottom: 10%;
+  position: relative;
+}
+
+.fa-times:hover{
+  color: #5bc0de;
+}
+
+.grey{
+  color: #d6d6d6;
+}
+
+.margin-negative{
+  margin-bottom: -3%;
+}
+
+h5{
+  display: inline;
+}
+
+.radio{
+  display: initial;
+}
+
+.badge{
+  bottom: 10%;
+  position: relative;
+}
+
+.grey{
+  color: #d6d6d6;
+}
+
+.fa-eye:hover{
+  color: #5bc0de;
+}
+
+.fa-pencil:hover{
+  color: #5bc0de;
+}
+
+.fa-times:hover{
+  color: #5bc0de;
+}
+
+.modal-dialog{
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+}
+
+.modal-content{
+  min-width: 200%;
+}
+
+#search{
+  display: inline;
+}
+
+.filters{
+  position: fixed;
+  min-width: 42%;
+  background-color: #3b3e40;
+  z-index: 1;
+  top: 0;
+  padding-top: 1%;
+}
+
+.folders-container{
+  margin-top: 10%;
+}
+
+.rests-container{
+  margin-top: 10%;
+}
+
+.rest-of-folder{
+  display: none;
+  font-size: smaller;
+}
+
+.margin-negative{
+  margin-bottom: -3%;
+}
+
+.rest-of-folder.open-toggler{
+  display: block;
+}
+
+.toggler {
+  color: white;
+  line-height: 1.2rem;
+  font-size: 0.7rem;
+  vertical-align: middle;
+  opacity: 0.6;
+  padding-right: 0.2rem;
+}
+
+.toggler:after {
+  display: inline-block;
+  transition: transform 300ms ease-in;
+  content: "\25b6";
+}
+
+.open-toggler > .toggler:after{
+  transform: rotate(90deg);
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.offcanvas{
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 45%;
+  z-index: 1050;
+  padding: 2%;
+  background-color: #3b3e40;
+  color: #FFF;
+  left: 100%;
+  transition: 600ms;
+  overflow-y: scroll;
+}
+
+.open{
+  transition: 600ms;
+  left: 55%;
+}
+
+.delete:hover{
+  text-shadow: 0px 0px 10px #d9534f;
+}
+
+.add:hover{
+  text-shadow: 0px 0px 10px #5bc0de;
+}
+
+.rests:hover{
+  background: rgba(59,62,64,1);
+  background: -moz-linear-gradient(left, rgba(59,62,64,1) 0%, rgba(59,62,64,1) 0%, rgba(63,69,74,1) 52%, rgba(59,62,64,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(59,62,64,1)), color-stop(0%, rgba(59,62,64,1)), color-stop(52%, rgba(63,69,74,1)), color-stop(100%, rgba(59,62,64,1)));
+  background: -webkit-linear-gradient(left, rgba(59,62,64,1) 0%, rgba(59,62,64,1) 0%, rgba(63,69,74,1) 52%, rgba(59,62,64,1) 100%);
+  background: -o-linear-gradient(left, rgba(59,62,64,1) 0%, rgba(59,62,64,1) 0%, rgba(63,69,74,1) 52%, rgba(59,62,64,1) 100%);
+  background: -ms-linear-gradient(left, rgba(59,62,64,1) 0%, rgba(59,62,64,1) 0%, rgba(63,69,74,1) 52%, rgba(59,62,64,1) 100%);
+  background: linear-gradient(to right, rgba(59,62,64,1) 0%, rgba(59,62,64,1) 0%, rgba(63,69,74,1) 52%, rgba(59,62,64,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3e40', endColorstr='#3b3e40', GradientType=1 );
+  cursor: pointer;
+}
+
+.offcanvas .fa{
+  position: absolute;
+  left: 90%;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+h2{
+  color: #292b2c;
 }

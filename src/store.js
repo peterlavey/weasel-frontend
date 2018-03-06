@@ -2,9 +2,13 @@ import reducers from "./reducers/reducers";
 import {applyMiddleware, createStore} from "redux";
 import {createLogger} from "redux-logger";
 import thunk from "redux-thunk";
+import {FOLDER_TYPE} from './constants/constants';
 
 const initialState = {
-    folder: {}
+    folder: {},
+    type: FOLDER_TYPE.EMPTY,
+    isRunning: false,
+    port: '7000'
 };
 
 const middleware = applyMiddleware(thunk, createLogger());

@@ -39,6 +39,7 @@ const Rest = ({rests})=> {
                         <p>{rest.path}</p>
                     </div>
                 </div>
+                JSON-FORMATTER
                 <hr/>
             </div>
         )

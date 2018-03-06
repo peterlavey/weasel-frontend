@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import folders from "./folderReducer";
+import folder from "./folderReducer";
 
 const reducers = combineReducers({
-    folders
+    folder
 });
 
 export default reducers;

@@ -1,12 +1,12 @@
 export default function folders(
     state = {
-        folders: []
+        folder: {}
     },
     action
 ) {
     switch (action.type) {
-        case 'LIST_FOLDERS':
-            return action.folders;
+        case 'GET_FOLDER':
+            return action.folder;
     }
 
     return state;

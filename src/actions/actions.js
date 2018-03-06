@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 
-export function getFolders(folderSelected='') {
+export function getFolder(folderSelected='root') {
     return (dispatch)=> {
         axios.get(`http://localhost:3002/weasel-api/list/folders/${folderSelected}`).then(response => {
             dispatch({
-                type: 'LIST_FOLDERS',
-                folders: response.data
+                type: 'GET_FOLDER',
+                folder: response.data
             });
         }).catch(err => {
             //dispatch();

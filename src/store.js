@@ -4,7 +4,7 @@ import {createLogger} from "redux-logger";
 import thunk from "redux-thunk";
 
 const initialState = {
-    folders: []
+    folder: {}
 };
 
 const middleware = applyMiddleware(thunk, createLogger());

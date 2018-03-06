@@ -4,17 +4,17 @@ import Folder from './folder';
 import Rest from './rest';
 import Group from './group';
 import Tutorial from './tutorial';
-import {getFolders} from '../actions/actions';
+import {getFolder} from '../actions/actions';
 
 class List extends Component {
     componentWillMount() {
-        //this.props.getFolders();
+        this.props.getFolder();
     }
 
     render() {
         return (
             <div className="container mx-auto mt-5">
-                <Folder></Folder>
+                <Folder folders={this.props.folder.folders}></Folder>
             </div>
         )
     }
@@ -22,13 +22,15 @@ class List extends Component {
 
 const mapStateToProps = state => {
     return {
-
+        folder: state.folder
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        getFolder() {
+            dispatch(getFolder());
+        }
     }
 };
 

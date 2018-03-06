@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getFolders} from "../actions/actions";
+import {getFolder} from "../actions/actions";
 
 class Folder extends Component {
-    componentWillMount() {
-        this.props.getFolders();
+    constructor(props){
+        super(props);
     }
 
     render() {
-        if(!this.props.folders.length){
+        console.log(this.props.folders);
+        if(!this.props.folders){
             return <h1>Sin carpetas</h1>
         }
 
         const folderComponentList = this.props.folders.map((folder, index)=> {
             return (
                 <div key={index} className="row">
-                    <div className="col-md-10" onClick={()=> this.props.getFolders(folder.name)}>
+                    <div className="col-md-10" onClick={()=> this.props.getFolders(folder)}>
                         <h3>
-                            <p>{folder.name}</p>
+                            <p>{folder}</p>
                         </h3>
                     </div>
 
@@ -40,8 +41,7 @@ class Folder extends Component {
 
 const mapStateToProps = state => {
     return {
-        folders: state.folders,
-        currentFolder: state.currentFolder
+
     }
 };
 
@@ -54,7 +54,7 @@ const mapDispatchToProps = dispatch => {
 
         },
         getFolders(folderSelected) {
-            dispatch(getFolders(folderSelected));
+            dispatch(getFolder(folderSelected));
         }
     }
 };

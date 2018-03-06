@@ -1,8 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-const Rest = ()=> {
-    const restComponentList = this.props.rests.map((folder, index)=> {
+const Rest = ({rests})=> {
+    console.log(rests);
+    if(!rests){
+        return <h1>Sin rests</h1>
+    }
+
+    const restComponentList = rests.map((rest, index)=> {
         return (
             <div key={index} className="row">
                 <div className="row">
@@ -18,8 +23,8 @@ const Rest = ()=> {
                                 <i className="fa fa-circle-o grey fa-1" hidden="rest.isSelected"></i>
                             </div>
                         </div>
-                        <span className="badge badge-pill badge-{{badgeState}}">rest.status</span>
-                        <h5>&nbsp;rest.name</h5>
+                        <span className="badge badge-pill badge-{{badgeState}}">{rest.status}</span>
+                        <h5>&nbsp;{rest.name}</h5>
                     </div>
 
                     <div className="col-md-2">
@@ -31,7 +36,7 @@ const Rest = ()=> {
 
                 <div className="row">
                     <div className="col">
-                        <p>rest.path</p>
+                        <p>{rest.path}</p>
                     </div>
                 </div>
                 <hr/>
@@ -48,7 +53,7 @@ const Rest = ()=> {
 
 const mapStateToProps = state => {
     return {
-        rests: state.rests
+
     }
 };
 

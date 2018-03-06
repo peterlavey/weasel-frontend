@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {getFolder} from "../actions/actions";
 
 const Folder = ({folders, getFolders})=> {
-        console.log(folders);
         if(!folders){
             return <h1>Sin carpetas</h1>
         }

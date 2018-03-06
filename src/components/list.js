@@ -15,6 +15,7 @@ class List extends Component {
         return (
             <div className="container mx-auto mt-5">
                 <Folder folders={this.props.folder.folders}></Folder>
+                <Rest rests={this.props.folder.content}></Rest>
             </div>
         )
     }

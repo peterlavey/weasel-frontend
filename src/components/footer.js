@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {FOLDER_TYPE} from "../constants/constants";
 import {startServices, stopServices} from "../actions/actions";
+import Breadcrumb from './breadcrumb';
 
 const Footer = ({type, isRunning, port, handlerServices})=> {
     return (
@@ -14,7 +15,7 @@ const Footer = ({type, isRunning, port, handlerServices})=> {
                 </div>
 
                 <div className="col-md-6 pt-3">
-                    BREADCRUMB
+                    <Breadcrumb></Breadcrumb>
                     <span hidden={!isRunning} className="text-info">Para navegar debe bajar los servicios</span>
                 </div>
 

@@ -1,9 +1,4 @@
-export default function runner(
-    state = {
-        isRunning: false
-    },
-    action
-) {
+export default function (state = null, action) {
     switch (action.type) {
         case 'START_SERVICES':
             return action.isRunning;

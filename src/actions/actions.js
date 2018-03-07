@@ -5,7 +5,8 @@ export function getFolder(folderSelected='root') {
         axios.get(`http://localhost:3002/weasel-api/list/folders/${folderSelected}`).then(response => {
             dispatch({
                 type: 'GET_FOLDER',
-                folder: response.data
+                folder: response.data,
+                breadcrumb: folderSelected
             });
         }).catch(err => {
             //dispatch();

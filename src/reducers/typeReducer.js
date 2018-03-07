@@ -1,11 +1,6 @@
 import {FOLDER_TYPE} from "../constants/constants";
 
-export default function type(
-    state = {
-        type: FOLDER_TYPE.EMPTY
-    },
-    action
-) {
+export default function (state = null, action) {
     switch (action.type) {
         case 'GET_FOLDER':
             if(action.folder.folders.length){

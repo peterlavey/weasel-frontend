@@ -8,7 +8,8 @@ const initialState = {
     folder: {},
     type: FOLDER_TYPE.EMPTY,
     isRunning: false,
-    port: '7000'
+    port: '7000',
+    breadcrumb: []
 };
 
 const middleware = applyMiddleware(thunk, createLogger());

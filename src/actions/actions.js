@@ -14,6 +14,21 @@ export function getFolder(folderSelected='root') {
     }
 }
 
+export function addFolder(folder) {
+    return (dispatch, getState)=> {
+        const name = getState().folder.name;
+        const body = folder;
+        axios.post(`http://localhost:3002/weasel-api/add/folder/${name}`, body).then(response => {
+            dispatch({
+                type: 'ADD_FOLDER',
+                folder: response.data
+            });
+        }).catch(err => {
+            //dispatch();
+        });
+    }
+}
+
 export function getPort() {
     return (dispatch)=> {
         axios.get(`http://localhost:3002/weasel-api/list/options`).then(response => {

@@ -3,7 +3,9 @@ import './App.css';
 import Header from './components/header';
 import List from './components/list';
 import Footer from './components/footer';
-import {getPort} from "./actions/actions";
+import CreateFolder from './components/createFolder';
+
+import {getPort} from './actions/actions';
 import {connect} from 'react-redux';
 
 class App extends Component {
@@ -14,9 +16,11 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Header></Header>
-                <List></List>
-                <Footer></Footer>
+                <Header/>
+                <List/>
+                <Footer/>
+
+                <CreateFolder/>
             </div>
         );
     }

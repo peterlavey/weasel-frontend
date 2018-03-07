@@ -2,12 +2,15 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 const Rest = ({rests})=> {
-    console.log(rests);
     if(!rests){
         return <h1>Sin rests</h1>
     }
 
     const restComponentList = rests.map((rest, index)=> {
+        if(!rest){
+            return <h2>No rest</h2>
+        }
+
         return (
             <div key={index} className="row">
                 <div className="row">

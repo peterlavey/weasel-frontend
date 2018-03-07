@@ -4,6 +4,8 @@ export default function (state = null, action) {
             return action.folder;
         case 'ADD_FOLDER':
             return action.folder;
+        case 'ADD_REST':
+            return action.folder;
     }
 
     return state;

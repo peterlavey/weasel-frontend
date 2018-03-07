@@ -1,4 +1,4 @@
-const LIST_STATUS = [{'name':'OK', 'code' : 200},
+export const LIST_STATUS = [{'name':'OK', 'code' : 200},
     {'name':'CREATED', 'code' : 201},
     {'name':'ACCEPTED', 'code' : 202},
     {'name':'NON_AUTHORITATIVE_INFORMATION', 'code' : 203},

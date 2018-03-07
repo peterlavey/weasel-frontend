@@ -4,6 +4,7 @@ import Header from './components/header';
 import List from './components/list';
 import Footer from './components/footer';
 import CreateFolder from './components/createFolder';
+import CreateRest from './components/createRest';
 
 import {getPort} from './actions/actions';
 import {connect} from 'react-redux';
@@ -21,6 +22,7 @@ class App extends Component {
                 <Footer/>
 
                 <CreateFolder/>
+                <CreateRest/>
             </div>
         );
     }

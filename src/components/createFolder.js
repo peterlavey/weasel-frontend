@@ -25,7 +25,6 @@ class CreateFolder extends Component {
     }
 
     render(){
-        console.log(this);
         return (
             <div onKeyDown={()=>this.props.enterKey()} className="modal fade" id="folderModal" tabIndex="-1" role="dialog" aria-labelledby="folderModal" aria-hidden="true">
                 <div className="modal-dialog" role="document">

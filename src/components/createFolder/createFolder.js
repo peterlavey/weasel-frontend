@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addFolder} from "../actions/actions";
+import {addFolder} from '../../actions/actions';
+import './createFolder.css';
 
 class CreateFolder extends Component {
     constructor(props){

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getFolder} from "../actions/actions";
+import {getFolder} from '../../actions/actions';
+import './folder.css';
 
 const Folder = ({folders, getFolders})=> {
     if(!folders){

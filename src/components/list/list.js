@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import Folder from './folder';
-import Rest from './rest';
-import Group from './group';
-import Tutorial from './tutorial';
-import {getFolder} from '../actions/actions';
+import Folder from '../folder/folder';
+import Rest from '../rest/rest';
+import Group from '../group/group';
+import Tutorial from '../tutorial/tutorial';
+import {getFolder} from '../../actions/actions';
+import './list.css';
 
 class List extends Component {
     componentWillMount() {

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FOLDER_TYPE} from "../constants/constants";
+import {FOLDER_TYPE} from '../../constants/constants';
+import './header.css';
 
 const Header = ({folder, type, isRunning})=> {
     return (

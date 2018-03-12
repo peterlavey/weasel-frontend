@@ -1,0 +1,36 @@
+h5{
+    display: inline;
+}
+
+.radio{
+    display: initial;
+}
+
+.badge{
+    bottom: 10%;
+    position: relative;
+}
+
+.grey{
+    color: #d6d6d6;
+}
+
+.fa-eye:hover{
+    color: #5bc0de;
+}
+
+.fa-pencil:hover{
+    color: #5bc0de;
+}
+
+.fa-times:hover{
+    color: #5bc0de;
+}
+
+.modal-dialog{
+    margin: 0;
+}
+
+.modal-content{
+    min-width: 200%;
+}

@@ -1,0 +1,60 @@
+.folder{
+    cursor: pointer;
+    color: #909090;
+}
+
+.folder:hover{
+    color: #000;
+}
+
+.rest-of-folder{
+    display: none;
+}
+
+.rest-of-folder.open-toggler{
+    display: block;
+}
+
+.rest-of-folder.open-toggler > div{
+    padding: 1%;
+}
+
+.toggler {
+    color: #000;
+    line-height: 1.2rem;
+    font-size: 0.7rem;
+    vertical-align: middle;
+    opacity: 0.6;
+    padding-right: 0.2rem;
+}
+
+.toggler:after {
+    display: inline-block;
+    transition: transform 300ms ease-in;
+    content: "\25b6";
+}
+
+.open-toggler > .toggler:after{
+    transform: rotate(90deg);
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.badge{
+    bottom: 10%;
+    position: relative;
+}
+
+.fa-times:hover{
+    color: #5bc0de;
+}
+
+.grey{
+    color: #d6d6d6;
+}
+
+.margin-negative{
+    margin-bottom: -3%;
+}

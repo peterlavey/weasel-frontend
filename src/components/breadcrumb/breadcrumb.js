@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getFolder} from "../actions/actions";
+import {getFolder} from '../../actions/actions';
+import './breadcrumb.css';
 
 const Breadcrumb = ({breadcrumb, navigate})=> {
     const breadcrumbComponentList = breadcrumb.map((directory, index)=>{

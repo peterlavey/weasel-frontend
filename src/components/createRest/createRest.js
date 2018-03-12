@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addRest} from "../actions/actions";
-import {LIST_STATUS} from "../constants/constants";
+import {addRest} from '../../actions/actions';
+import {LIST_STATUS} from '../../constants/constants';
+import './createRest.css';
 
 class CreateRest extends Component {
     constructor(props){

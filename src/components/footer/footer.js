@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {FOLDER_TYPE} from "../constants/constants";
-import {startServices, stopServices} from "../actions/actions";
-import Breadcrumb from './breadcrumb';
+import {FOLDER_TYPE} from '../../constants/constants';
+import {startServices, stopServices} from '../../actions/actions';
+import Breadcrumb from '../breadcrumb/breadcrumb';
+import './footer.css';
 
 const Footer = ({type, isRunning, port, handlerServices})=> {
     return (

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/header';
-import List from './components/list';
-import Footer from './components/footer';
-import CreateFolder from './components/createFolder';
-import CreateRest from './components/createRest';
+import Header from './components/header/header';
+import List from './components/list/list';
+import Footer from './components/footer/footer';
+import CreateFolder from './components/createFolder/createFolder';
+import CreateRest from './components/createRest/createRest';
 
 import {getPort} from './actions/actions';
 import {connect} from 'react-redux';

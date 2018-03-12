@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import './tutorial.css';
 
-const Group = ()=> {
+const Tutorial = ()=> {
     const folderComponentList = this.props.folders.map((folder, index)=> {
         return (
             <div key={index} className="row">
@@ -47,4 +48,4 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Group);
+export default connect(mapStateToProps, mapDispatchToProps)(Tutorial);

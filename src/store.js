@@ -8,7 +8,7 @@ const initialState = {
     folder: {},
     type: FOLDER_TYPE.EMPTY,
     isRunning: false,
-    port: '7000',
+    port: '',
     breadcrumb: []
 };
 

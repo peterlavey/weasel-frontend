@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {FOLDER_TYPE} from '../../constants/constants';
 import {startServices, stopServices} from '../../actions/actions';
 import Breadcrumb from '../breadcrumb/breadcrumb';
+import Port from '../port/port';
 import './footer.css';
 
 const Footer = ({type, isRunning, port, handlerServices})=> {
@@ -37,11 +38,7 @@ const Footer = ({type, isRunning, port, handlerServices})=> {
                         </div>
 
                         <div className="col">
-                            <i className="fa fa-cog fa-2x text-white tooltip-ws" aria-hidden="true" data-toggle="modal" data-target="#optionsModal" hidden={isRunning}>
-                                <span className="tooltiptext">Change port</span>
-                            </i>
-                            <i className="fa fa-cog fa-2x text-muted" aria-hidden="true" hidden={!isRunning}></i>
-                            <samp className="text-white">&nbsp;{port}</samp>
+                            <Port/>
                         </div>
                     </div>
                 </div>
@@ -57,8 +54,7 @@ const Footer = ({type, isRunning, port, handlerServices})=> {
 const mapStateToProps = state => {
     return {
         type: state.type,
-        isRunning: state.isRunning,
-        port: state.port
+        isRunning: state.isRunning
     }
 };
 

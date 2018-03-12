@@ -57,11 +57,25 @@ export function getPort() {
     }
 }
 
+export function setPort(port) {
+    return (dispatch)=> {
+        let body = {port: parseInt(port, 10)};
+        axios.post(`http://localhost:3002/weasel-api/options`, body).then(() => {
+            dispatch({
+                type: 'SET_PORT',
+                port: port
+            });
+        }).catch(err => {
+            //dispatch();
+        });
+    }
+}
+
 export function startServices() {
     return (dispatch, getState)=> {
         const name = getState().folder.name;
         const body = getState().folder.content;
-        axios.post(`http://localhost:3002/weasel-api/start/${name}`, body).then(response => {
+        axios.post(`http://localhost:3002/weasel-api/start/${name}`, body).then(() => {
             dispatch({
                 type: 'START_SERVICES',
                 isRunning: true
@@ -74,7 +88,7 @@ export function startServices() {
 
 export function stopServices() {
     return (dispatch)=> {
-        axios.get(`http://localhost:3002/weasel-api/kill`).then(response => {
+        axios.get(`http://localhost:3002/weasel-api/kill`).then(() => {
             dispatch({
                 type: 'STOP_SERVICES',
                 isRunning: false
